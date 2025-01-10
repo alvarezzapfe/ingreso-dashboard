@@ -11,8 +11,7 @@
     />
   </head>
   <body>
-    <!-- Barra lateral (siempre visible) -->
-
+    <!-- Barra lateral -->
     <div class="sidebar">
       <a href="javascript:void(0)" onclick="showSection('dashboard')"
         >Dashboard</a
@@ -25,11 +24,8 @@
       >
     </div>
 
-    <!-- Botón de menú (hamburger) para opciones de inicio, perfil y cerrar sesión -->
-    <div class="menu-btn" onclick="toggleMenu()">
-      &#9776;
-      <!-- Icono de tres rayas horizontales -->
-    </div>
+    <!-- Botón de menú -->
+    <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
 
     <!-- Opciones de menú superior -->
     <div id="menuOptions" class="menu-options">
@@ -46,141 +42,227 @@
     <!-- Contenido principal -->
     <div class="content">
       <header>
-        <h1></h1>
+        <h1>Plataforma de Reportería Regulatoria</h1>
       </header>
 
       <div class="container">
-        <!-- Dashboard -->
+        <!-- Sección: Dashboard -->
         <section id="dashboard" class="section active">
           <h2>Dashboard</h2>
-          <p class="active-user">Usuario activo: luis@crowdlink.mx</p>
-          
-          <div id="dashboardIndicators" class="indicators">
+          <div class="indicators">
             <div class="indicator">
               <h3>Fecha límite para enviar Reportes SITI</h3>
-              <p id="numCreditosActivos">31/01/2024</p>
+              <p>31/01/2024</p>
             </div>
             <div class="indicator">
-              <h3>Reportes Correspondientes a periodo actual</h3>
-              <p id="numSolicitudes">6</p>
+              <h3>Reportes Correspondientes a Periodo Actual</h3>
+              <p>6</p>
             </div>
             <div class="indicator">
               <h3>Incidencias</h3>
-              <p id="montoCreditoActivo">0</p>
+              <p>0</p>
             </div>
             <div class="indicator">
               <h3>Funcionalidad de AWS</h3>
-              <p id="vencimientosProximos">Activa</p>
+              <p>Activa</p>
             </div>
-            <section id="grafica-cartera">
-              <div class="container">
-                <h3></h3>
-                <canvas id="graficoCartera" width="400" height="200"></canvas>
-              </div>
-            </section>
-
           </div>
         </section>
 
-        <!-- Reportes Financieros -->
-        <section id="reportesFinancieros" class="section">
+        <!-- Sección: Reportes Regulatorios -->
+        <section id="reportesFinancieros" class="section active">
           <h2>Reportes Regulatorios</h2>
-          <h2>Sube tu archivo Excel y obtén el JSON</h2>
-          <div id="report-options">
-              <!-- Generate 12 options dynamically -->
-              <div class="report-option">
-                  <h3>Serie R01 - Catálogo Mínimo A-0112</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R01')" />
-                  <pre id="result-R01"></pre>
+          <div class="container">
+            <!-- Serie R01 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('R01')">Serie R01</h2>
+              <div id="R01" class="opciones ocultar">
+                <h3>Catálogo Mínimo A-0112</h3>
+                <input type="file" id="fileR01" accept=".xlsx" />
+                <button onclick="transformar('fileR01', 'resultR01')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR01')">Descargar JSON</button>
+                <pre id="resultR01"></pre>
               </div>
-              <div class="report-option">
-                  <h3>Serie R08 - Préstamos bancarios y de otros organismos - D-0842</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R08')" />
-                  <pre id="result-R08"></pre>
+            </div>
+
+            <!-- Serie R08 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('R08')">Serie R08</h2>
+              <div id="R08" class="opciones ocultar">
+                <h3>Préstamos bancarios - D-0842</h3>
+                <input type="file" id="fileR08" accept=".xlsx" />
+                <button onclick="transformar('fileR08', 'resultR08')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR08')">Descargar JSON</button>
+                <pre id="resultR08"></pre>
               </div>
-              <div class="report-option">
-                  <h3>Serie R10 – Reclasificaciones - A-10112</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R10-1')" />
-                  <pre id="result-R10-1"></pre>
+            </div>
+
+            <!-- Serie R10 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('R10')">Serie R10</h2>
+              <div id="R10" class="opciones ocultar">
+                <h3>Reclasificaciones - A-10112</h3>
+                <input type="file" id="fileR10A" accept=".xlsx" />
+                <button onclick="transformar('fileR10A', 'resultR10A')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR10A')">
+                  Descargar JSON
+                </button>
+                <pre id="resultR10A"></pre>
+
+                <h3>Reclasificaciones - A-10122</h3>
+                <input type="file" id="fileR10B" accept=".xlsx" />
+                <button onclick="transformar('fileR10B', 'resultR10B')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR10B')">
+                  Descargar JSON
+                </button>
+                <pre id="resultR10B"></pre>
               </div>
-              <div class="report-option">
-                  <h3>Serie R10 – Reclasificaciones - A-10122</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R10-2')" />
-                  <pre id="result-R10-2"></pre>
+            </div>
+
+            <!-- Serie R12 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('R12')">Serie R12</h2>
+              <div id="R12" class="opciones ocultar">
+                <h3>Consolidación - A-12192</h3>
+                <input type="file" id="fileR12A" accept=".xlsx" />
+                <button onclick="transformar('fileR12A', 'resultR12A')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR12A')">
+                  Descargar JSON
+                </button>
+                <pre id="resultR12A"></pre>
+
+                <h3>Consolidación - A-12202</h3>
+                <input type="file" id="fileR12B" accept=".xlsx" />
+                <button onclick="transformar('fileR12B', 'resultR12B')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR12B')">
+                  Descargar JSON
+                </button>
+                <pre id="resultR12B"></pre>
               </div>
-              <div class="report-option">
-                  <h3>Serie R12 - Consolidación - A-12192</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R12-1')" />
-                  <pre id="result-R12-1"></pre>
+            </div>
+
+            <!-- Serie R13 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('R13')">Serie R13</h2>
+              <div id="R13" class="opciones ocultar">
+                <h3>Estado de cambios - A-13112</h3>
+                <input type="file" id="fileR13A" accept=".xlsx" />
+                <button onclick="transformar('fileR13A', 'resultR13A')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR13A')">
+                  Descargar JSON
+                </button>
+                <pre id="resultR13A"></pre>
+
+                <h3>Estado de flujos - A-13162</h3>
+                <input type="file" id="fileR13B" accept=".xlsx" />
+                <button onclick="transformar('fileR13B', 'resultR13B')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR13B')">
+                  Descargar JSON
+                </button>
+                <pre id="resultR13B"></pre>
+
+                <h3>Estado de situación - B-13212</h3>
+                <input type="file" id="fileR13C" accept=".xlsx" />
+                <button onclick="transformar('fileR13C', 'resultR13C')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR13C')">
+                  Descargar JSON
+                </button>
+                <pre id="resultR13C"></pre>
+
+                <h3>Estado de resultado integral - B-13222</h3>
+                <input type="file" id="fileR13D" accept=".xlsx" />
+                <button onclick="transformar('fileR13D', 'resultR13D')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR13D')">
+                  Descargar JSON
+                </button>
+                <pre id="resultR13D"></pre>
               </div>
-              <div class="report-option">
-                  <h3>Serie R12 - Consolidación - A-12202</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R12-2')" />
-                  <pre id="result-R12-2"></pre>
+            </div>
+
+            <!-- Serie R27 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('R27')">Serie R27</h2>
+              <div id="R27" class="opciones ocultar">
+                <h3>Reclamaciones - A-2702</h3>
+                <input type="file" id="fileR27" accept=".xlsx" />
+                <button onclick="transformar('fileR27', 'resultR27')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR27')">Descargar JSON</button>
+                <pre id="resultR27"></pre>
               </div>
-              <div class="report-option">
-                  <h3>Serie R13 - Estados Financieros - A-13112</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R13-1')" />
-                  <pre id="result-R13-1"></pre>
-              </div>
-              <div class="report-option">
-                  <h3>Serie R13 - Estados Financieros - A-13162</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R13-2')" />
-                  <pre id="result-R13-2"></pre>
-              </div>
-              <div class="report-option">
-                  <h3>Serie R13 - Estados Financieros - B-13212</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R13-3')" />
-                  <pre id="result-R13-3"></pre>
-              </div>
-              <div class="report-option">
-                  <h3>Serie R13 - Estados Financieros - B-13222</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R13-4')" />
-                  <pre id="result-R13-4"></pre>
-              </div>
-              <div class="report-option">
-                  <h3>Serie R27 - Reclamaciones - A-2702</h3>
-                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R27')" />
-                  <pre id="result-R27"></pre>
-              </div>
+            </div>
           </div>
-      </section>
+        </section>
 
-        <!-- Termina Sección de Solicitudes -->
-
-        
-          
-        <!-- Usuarios de la Empresa -->
+        <!-- Sección: Usuarios -->
         <section id="usuariosEmpresa" class="section">
-          <h2>Usuarios de la plataforma (Super Administrador)</h2>
-          <p>Aquí verás los usuarios autorizados para utilizar la aplicación</p>
-          <!-- Botón de Agregar Empresa Promovida -->
-          <button class="btn-agregar" onclick="agregarEmpresa()">
-            Agregar Usuario
-          </button>
+          <h2>Usuarios de la Plataforma</h2>
+          <p>Gestiona y visualiza los usuarios registrados en la aplicación.</p>
 
-          <div class="cartera-container">
-            <table class="table">
+          <!-- Botón para agregar usuario -->
+          <div class="usuarios-header">
+            <button class="btn-agregar-usuario" onclick="agregarUsuario()">
+              Agregar Usuario
+            </button>
+          </div>
+
+          <!-- Tabla de usuarios -->
+          <div class="usuarios-container">
+            <table class="usuarios-tabla">
               <thead>
                 <tr>
                   <th>Permiso</th>
                   <th>Usuario</th>
-                  <th>Nomre Completo Usuario</th>
-                  <th>Registro (Fecha)</th>
-                  <th>Detalle</th>
+                  <th>Nombre Completo</th>
+                  <th>Fecha de Registro</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody id="empresasTable">
-                <!-- Aquí se generarán dinámicamente los datos -->
+              <tbody>
                 <tr>
-                  <td>Consultor</td>
-                  <td>conta@crowdlink.mx</td>
-                  <td>Juana Monroy Vargas</td>
-                  <td>2024-12-01</td>
+                  <td>Administrador</td>
+                  <td>admin@empresa.com</td>
+                  <td>Juan Pérez</td>
+                  <td>2024-01-10</td>
                   <td>
                     <button
-                      class="btn-detalle"
-                      onclick="verDetalleEmpresa('1')"
+                      class="btn-detalle-usuario"
+                      onclick="verDetalleUsuario('1')"
+                    >
+                      Ver Detalle
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Consultor</td>
+                  <td>consultor@empresa.com</td>
+                  <td>María López</td>
+                  <td>2024-01-08</td>
+                  <td>
+                    <button
+                      class="btn-detalle-usuario"
+                      onclick="verDetalleUsuario('2')"
                     >
                       Ver Detalle
                     </button>
@@ -194,19 +276,16 @@
     </div>
 
     <footer>
-      <p>&copy; 2024 Plataforma para Reportería Regulatoria a CNBV. Todos los derechos reservados.</p>
+      <p>
+        &copy; 2024 Plataforma para Reportería Regulatoria. Todos los derechos
+        reservados.
+      </p>
       <div class="logo">
         <img src="images/Crowdlink - Logotipo-01.png" alt="" />
-        
       </div>
     </footer>
 
-    <!-- Scripts al final del archivo -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Scripts -->
     <script src="js/dashboard.js"></script>
-
-  </section>
-  
   </body>
 </html>
