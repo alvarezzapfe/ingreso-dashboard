@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Barra lateral (siempre visible) -->
+
+    <div class="sidebar">
+      <a href="javascript:void(0)" onclick="showSection('dashboard')"
+        >Dashboard</a
+      >
+      <a href="javascript:void(0)" onclick="showSection('reportesFinancieros')"
+        >Reportes Regulatorios</a
+      >
+      <a href="javascript:void(0)" onclick="showSection('usuariosEmpresa')"
+        >Usuarios</a
+      >
+    </div>
+
+    <!-- Botón de menú (hamburger) para opciones de inicio, perfil y cerrar sesión -->
+    <div class="menu-btn" onclick="toggleMenu()">
+      &#9776;
+      <!-- Icono de tres rayas horizontales -->
+    </div>
+
+    <!-- Opciones de menú superior -->
+    <div id="menuOptions" class="menu-options">
+      <a href="ingreso.html" class="menu-link">Inicio</a>
+      <a
+        href="javascript:void(0)"
+        onclick="showSection('perfil')"
+        class="menu-link"
+        >Perfil</a
+      >
+      <a href="ingreso.html" class="menu-link">Cerrar sesión</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+      <header>
+        <h1></h1>
+      </header>
+
+      <div class="container">
+        <!-- Dashboard -->
+        <section id="dashboard" class="section active">
+          <h2>Dashboard</h2>
+          <p class="active-user">Usuario activo: luis@crowdlink.mx</p>
+          
+          <div id="dashboardIndicators" class="indicators">
+            <div class="indicator">
+              <h3>Fecha límite para enviar Reportes SITI</h3>
+              <p id="numCreditosActivos">31/01/2024</p>
+            </div>
+            <div class="indicator">
+              <h3>Reportes Correspondientes a periodo actual</h3>
+              <p id="numSolicitudes">6</p>
+            </div>
+            <div class="indicator">
+              <h3>Incidencias</h3>
+              <p id="montoCreditoActivo">0</p>
+            </div>
+            <div class="indicator">
+              <h3>Funcionalidad de AWS</h3>
+              <p id="vencimientosProximos">Activa</p>
+            </div>
+            <section id="grafica-cartera">
+              <div class="container">
+                <h3></h3>
+                <canvas id="graficoCartera" width="400" height="200"></canvas>
+              </div>
+            </section>
+
+          </div>
+        </section>
+
+        <!-- Reportes Financieros -->
+        <section id="reportesFinancieros" class="section">
+          <h2>Reportes Regulatorios</h2>
+          <h2>Sube tu archivo Excel y obtén el JSON</h2>
+          <div id="report-options">
+              <!-- Generate 12 options dynamically -->
+              <div class="report-option">
+                  <h3>Serie R01 - Catálogo Mínimo A-0112</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R01')" />
+                  <pre id="result-R01"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R08 - Préstamos bancarios y de otros organismos - D-0842</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R08')" />
+                  <pre id="result-R08"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R10 – Reclasificaciones - A-10112</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R10-1')" />
+                  <pre id="result-R10-1"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R10 – Reclasificaciones - A-10122</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R10-2')" />
+                  <pre id="result-R10-2"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R12 - Consolidación - A-12192</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R12-1')" />
+                  <pre id="result-R12-1"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R12 - Consolidación - A-12202</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R12-2')" />
+                  <pre id="result-R12-2"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R13 - Estados Financieros - A-13112</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R13-1')" />
+                  <pre id="result-R13-1"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R13 - Estados Financieros - A-13162</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R13-2')" />
+                  <pre id="result-R13-2"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R13 - Estados Financieros - B-13212</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R13-3')" />
+                  <pre id="result-R13-3"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R13 - Estados Financieros - B-13222</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R13-4')" />
+                  <pre id="result-R13-4"></pre>
+              </div>
+              <div class="report-option">
+                  <h3>Serie R27 - Reclamaciones - A-2702</h3>
+                  <input type="file" accept=".xlsx" onchange="handleFile(event, 'result-R27')" />
+                  <pre id="result-R27"></pre>
+              </div>
+          </div>
+      </section>
+
+        <!-- Termina Sección de Solicitudes -->
+
+        
+          
+        <!-- Usuarios de la Empresa -->
+        <section id="usuariosEmpresa" class="section">
+          <h2>Usuarios de la plataforma (Super Administrador)</h2>
+          <p>Aquí verás los usuarios autorizados para utilizar la aplicación</p>
+          <!-- Botón de Agregar Empresa Promovida -->
+          <button class="btn-agregar" onclick="agregarEmpresa()">
+            Agregar Usuario
+          </button>
+
+          <div class="cartera-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Permiso</th>
+                  <th>Usuario</th>
+                  <th>Nomre Completo Usuario</th>
+                  <th>Registro (Fecha)</th>
+                  <th>Detalle</th>
+                </tr>
+              </thead>
+              <tbody id="empresasTable">
+                <!-- Aquí se generarán dinámicamente los datos -->
+                <tr>
+                  <td>Consultor</td>
+                  <td>conta@crowdlink.mx</td>
+                  <td>Juana Monroy Vargas</td>
+                  <td>2024-12-01</td>
+                  <td>
+                    <button
+                      class="btn-detalle"
+                      onclick="verDetalleEmpresa('1')"
+                    >
+                      Ver Detalle
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Plataforma para Reportería Regulatoria a CNBV. Todos los derechos reservados.</p>
+      <div class="logo">
+        <img src="images/Crowdlink - Logotipo-01.png" alt="" />
+        
+      </div>
+    </footer>
+
+    <!-- Scripts al final del archivo -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+
+  </section>
+  
+  </body>
+</html>
