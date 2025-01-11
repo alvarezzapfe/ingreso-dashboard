@@ -156,203 +156,295 @@
           </section>
         </div>
 
-        <!-- Sección: Reportes Regulatorios -->
-        <section id="reportesFinancieros" class="section active">
-          <h2>Reportes Regulatorios</h2>
-          <div class="container">
-            <!-- Serie R01 -->
-            <div class="serie">
-              <h2 onclick="toggleOptions('R01')">Serie R01</h2>
-              <div id="R01" class="opciones ocultar">
-                <h3>Catálogo Mínimo A-0112</h3>
-                <input type="file" id="fileR01" accept=".xlsx" />
-                <button onclick="transformar('fileR01', 'resultR01')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR01')">Descargar JSON</button>
-                <pre id="resultR01"></pre>
-              </div>
-            </div>
+      <!-- Sección: Reportes Regulatorios -->
+<!-- Sección: Reportes Regulatorios -->
+<section id="reportesFinancieros" class="section active">
+  <h2>Reportes Regulatorios</h2>
+  <p class="section-subtitle">
+    Gestiona y transforma reportes financieros clave para el cumplimiento regulatorio.
+  </p>
+  <div class="container">
+    <!-- Serie R01 -->
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R01')">
+        <i class="fas fa-file-alt"></i> Serie R01 - Catálogo Mínimo
+      </h3>
+      <div id="R01" class="opciones ocultar">
+        <p class="description">Catálogo Mínimo A-0112</p>
+        <input type="file" id="fileR01" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR01', 'resultR01')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR01')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR01" class="json-result"></pre>
+      </div>
+    </div>
 
-            <!-- Serie R08 -->
-            <div class="serie">
-              <h2 onclick="toggleOptions('R08')">Serie R08</h2>
-              <div id="R08" class="opciones ocultar">
-                <h3>Préstamos bancarios - D-0842</h3>
-                <input type="file" id="fileR08" accept=".xlsx" />
-                <button onclick="transformar('fileR08', 'resultR08')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR08')">Descargar JSON</button>
-                <pre id="resultR08"></pre>
-              </div>
-            </div>
+    <!-- Serie R08 -->
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R08')">
+        <i class="fas fa-file-alt"></i> Serie R08 - Préstamos Bancarios
+      </h3>
+      <div id="R08" class="opciones ocultar">
+        <p class="description">Préstamos Bancarios y de Otros Organismos - D-0842</p>
+        <input type="file" id="fileR08" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR08', 'resultR08')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR08')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR08" class="json-result"></pre>
+      </div>
+    </div>
 
-            <!-- Serie R10 -->
-            <div class="serie">
-              <h2 onclick="toggleOptions('R10')">Serie R10</h2>
-              <div id="R10" class="opciones ocultar">
-                <h3>Reclasificaciones - A-10112</h3>
-                <input type="file" id="fileR10A" accept=".xlsx" />
-                <button onclick="transformar('fileR10A', 'resultR10A')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR10A')">
-                  Descargar JSON
-                </button>
-                <pre id="resultR10A"></pre>
+    <!-- Serie R10 Reclasificaciones -->
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R10A')">
+        <i class="fas fa-file-alt"></i> Serie R10 - Reclasificaciones (A-10112)
+      </h3>
+      <div id="R10A" class="opciones ocultar">
+        <p class="description">Reclasificaciones en el Estado de Situación Financiera</p>
+        <input type="file" id="fileR10A" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR10A', 'resultR10A')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR10A')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR10A" class="json-result"></pre>
+      </div>
+    </div>
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R10B')">
+        <i class="fas fa-file-alt"></i> Serie R10 - Reclasificaciones (A-10122)
+      </h3>
+      <div id="R10B" class="opciones ocultar">
+        <p class="description">Reclasificaciones en el Estado de Resultado Integral</p>
+        <input type="file" id="fileR10B" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR10B', 'resultR10B')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR10B')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR10B" class="json-result"></pre>
+      </div>
+    </div>
 
-                <h3>Reclasificaciones - A-10122</h3>
-                <input type="file" id="fileR10B" accept=".xlsx" />
-                <button onclick="transformar('fileR10B', 'resultR10B')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR10B')">
-                  Descargar JSON
-                </button>
-                <pre id="resultR10B"></pre>
-              </div>
-            </div>
+    <!-- Serie R12 Consolidación -->
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R12A')">
+        <i class="fas fa-file-alt"></i> Serie R12 - Consolidación (A-12192)
+      </h3>
+      <div id="R12A" class="opciones ocultar">
+        <p class="description">Consolidación del Estado de Situación Financiera</p>
+        <input type="file" id="fileR12A" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR12A', 'resultR12A')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR12A')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR12A" class="json-result"></pre>
+      </div>
+    </div>
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R12B')">
+        <i class="fas fa-file-alt"></i> Serie R12 - Consolidación (A-12202)
+      </h3>
+      <div id="R12B" class="opciones ocultar">
+        <p class="description">Consolidación del Estado de Resultado Integral</p>
+        <input type="file" id="fileR12B" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR12B', 'resultR12B')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR12B')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR12B" class="json-result"></pre>
+      </div>
+    </div>
 
-            <!-- Serie R12 -->
-            <div class="serie">
-              <h2 onclick="toggleOptions('R12')">Serie R12</h2>
-              <div id="R12" class="opciones ocultar">
-                <h3>Consolidación - A-12192</h3>
-                <input type="file" id="fileR12A" accept=".xlsx" />
-                <button onclick="transformar('fileR12A', 'resultR12A')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR12A')">
-                  Descargar JSON
-                </button>
-                <pre id="resultR12A"></pre>
+    <!-- Serie R13 Estados Financieros -->
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R13A')">
+        <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (A-13112)
+      </h3>
+      <div id="R13A" class="opciones ocultar">
+        <p class="description">Estado de Cambios en el Capital Contable</p>
+        <input type="file" id="fileR13A" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR13A', 'resultR13A')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR13A')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR13A" class="json-result"></pre>
+      </div>
+    </div>
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R13B')">
+        <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (A-13162)
+      </h3>
+      <div id="R13B" class="opciones ocultar">
+        <p class="description">Estado de Flujos de Efectivo</p>
+        <input type="file" id="fileR13B" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR13B', 'resultR13B')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR13B')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR13B" class="json-result"></pre>
+      </div>
+    </div>
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R13C')">
+        <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (B-13212)
+      </h3>
+      <div id="R13C" class="opciones ocultar">
+        <p class="description">Estado de Situación Financiera</p>
+        <input type="file" id="fileR13C" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR13C', 'resultR13C')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR13C')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR13C" class="json-result"></pre>
+      </div>
+    </div>
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R13D')">
+        <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (B-13222)
+      </h3>
+      <div id="R13D" class="opciones ocultar">
+        <p class="description">Estado de Resultado Integral</p>
+        <input type="file" id="fileR13D" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR13D', 'resultR13D')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR13D')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR13D" class="json-result"></pre>
+      </div>
+    </div>
 
-                <h3>Consolidación - A-12202</h3>
-                <input type="file" id="fileR12B" accept=".xlsx" />
-                <button onclick="transformar('fileR12B', 'resultR12B')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR12B')">
-                  Descargar JSON
-                </button>
-                <pre id="resultR12B"></pre>
-              </div>
-            </div>
+    <!-- Serie R27 Reclamaciones -->
+    <div class="serie">
+      <h3 class="serie-title" onclick="toggleOptions('R27')">
+        <i class="fas fa-file-alt"></i> Serie R27 - Reclamaciones
+      </h3>
+      <div id="R27" class="opciones ocultar">
+        <p class="description">Reclamaciones - A-2702</p>
+        <input type="file" id="fileR27" accept=".xlsx" />
+        <div class="buttons">
+          <button onclick="transformar('fileR27', 'resultR27')">
+            <i class="fas fa-file-code"></i> Transformar a JSON
+          </button>
+          <button onclick="descargar('resultR27')">
+            <i class="fas fa-download"></i> Descargar JSON
+          </button>
+        </div>
+        <pre id="resultR27" class="json-result"></pre>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <!-- Serie R13 -->
-            <div class="serie">
-              <h2 onclick="toggleOptions('R13')">Serie R13</h2>
-              <div id="R13" class="opciones ocultar">
-                <h3>Estado de cambios - A-13112</h3>
-                <input type="file" id="fileR13A" accept=".xlsx" />
-                <button onclick="transformar('fileR13A', 'resultR13A')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR13A')">
-                  Descargar JSON
-                </button>
-                <pre id="resultR13A"></pre>
 
-                <h3>Estado de flujos - A-13162</h3>
-                <input type="file" id="fileR13B" accept=".xlsx" />
-                <button onclick="transformar('fileR13B', 'resultR13B')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR13B')">
-                  Descargar JSON
-                </button>
-                <pre id="resultR13B"></pre>
 
-                <h3>Estado de situación - B-13212</h3>
-                <input type="file" id="fileR13C" accept=".xlsx" />
-                <button onclick="transformar('fileR13C', 'resultR13C')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR13C')">
-                  Descargar JSON
-                </button>
-                <pre id="resultR13C"></pre>
-
-                <h3>Estado de resultado integral - B-13222</h3>
-                <input type="file" id="fileR13D" accept=".xlsx" />
-                <button onclick="transformar('fileR13D', 'resultR13D')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR13D')">
-                  Descargar JSON
-                </button>
-                <pre id="resultR13D"></pre>
-              </div>
-            </div>
-
-            <!-- Serie R27 -->
-            <div class="serie">
-              <h2 onclick="toggleOptions('R27')">Serie R27</h2>
-              <div id="R27" class="opciones ocultar">
-                <h3>Reclamaciones - A-2702</h3>
-                <input type="file" id="fileR27" accept=".xlsx" />
-                <button onclick="transformar('fileR27', 'resultR27')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR27')">Descargar JSON</button>
-                <pre id="resultR27"></pre>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Sección Reportes PLD -->
+          <!-- Sección Reportes PLD -->
         <section id="reportesPLD" class="section active">
           <h2>Reportes Regulatorios PLD: Art. 66, 69 & 71</h2>
+          <p class="section-subtitle">
+            Gestiona y transforma los reportes relacionados con Operaciones Relevantes, Inusuales e Internas Preocupantes.
+          </p>
           <div class="container">
             <!-- Art. 66 -->
             <div class="serie">
-              <h2 onclick="toggleOptions('A66')">
-                Art. 66 Operaciones Inusuales
-              </h2>
+              <h3 class="serie-title" onclick="toggleOptions('A66')">
+                <i class="fas fa-folder-open"></i> Art. 66 - Operaciones Relevantes
+              </h3>
               <div id="A66" class="opciones ocultar">
-                <h3>Operaciones Inusuales</h3>
-                <input type="file" id="fileR01" accept=".xlsx" />
-                <button onclick="transformar('fileR01', 'resultR01')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR01')">Descargar JSON</button>
-                <pre id="resultA66"></pre>
+                <p class="description">Sube tu archivo para transformar y descargar.</p>
+                <input type="file" id="fileA66" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileA66', 'resultA66')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultA66')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultA66" class="json-result"></pre>
               </div>
             </div>
-            <!-- Art. 66 -->
+            <!-- Art. 69 -->
             <div class="serie">
-              <h2 onclick="toggleOptions('A66')">
-                Art. 66 Operaciones Inusuales
-              </h2>
-              <div id="A66" class="opciones ocultar">
-                <h3>Operaciones Inusuales</h3>
-                <input type="file" id="fileR01" accept=".xlsx" />
-                <button onclick="transformar('fileR01', 'resultR01')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR01')">Descargar JSON</button>
-                <pre id="resultA66"></pre>
+              <h3 class="serie-title" onclick="toggleOptions('A69')">
+                <i class="fas fa-folder-open"></i> Art. 69 - Operaciones Inusuales
+              </h3>
+              <div id="A69" class="opciones ocultar">
+                <p class="description">Sube tu archivo para transformar y descargar.</p>
+                <input type="file" id="fileA69" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileA69', 'resultA69')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultA69')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultA69" class="json-result"></pre>
               </div>
             </div>
-            <!-- Art. 66 -->
+            <!-- Art. 71 -->
             <div class="serie">
-              <h2 onclick="toggleOptions('A66')">
-                Art. 66 Operaciones Inusuales
-              </h2>
-              <div id="A66" class="opciones ocultar">
-                <h3>Operaciones Inusuales</h3>
-                <input type="file" id="fileR01" accept=".xlsx" />
-                <button onclick="transformar('fileR01', 'resultR01')">
-                  Transformar a JSON
-                </button>
-                <button onclick="descargar('resultR01')">Descargar JSON</button>
-                <pre id="resultA66"></pre>
+              <h3 class="serie-title" onclick="toggleOptions('A71')">
+                <i class="fas fa-folder-open"></i> Art. 71 - Operaciones Internas Preocupantes
+              </h3>
+              <div id="A71" class="opciones ocultar">
+                <p class="description">Sube tu archivo para transformar y descargar.</p>
+                <input type="file" id="fileA71" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileA71', 'resultA71')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultA71')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultA71" class="json-result"></pre>
               </div>
             </div>
           </div>
         </section>
+
 
         <!-- Sección: Usuario personal -->
         <section id="usuario" class="section">
@@ -393,55 +485,83 @@
 
         
           <!-- Sección: Información General -->
-        <section id="infoGeneral" class="section active">
-          <div class="info-header">
-            <h2>Información de Ayuda</h2>
-            <p class="info-subtitle">
-              Esta plataforma es una herramienta de PorCuanto S.A. de C.V., IFC para la gestión de reportes regulatorios a la CNBV.
-            </p>
-          </div>
-          <div class="info-content">
-            <!-- Indicadores existentes -->
-            <div class="indicators">
-              <!-- Indicadores previos aquí -->
-            </div>
-            <!-- Sección de Preguntas Frecuentes -->
-            <div class="faq-section">
-              <h3>Preguntas Frecuentes</h3>
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  ¿Qué es la CNBV y cuál es su función?
-                </button>
-                <div class="faq-answer">
-                  <p>
-                    La Comisión Nacional Bancaria y de Valores (CNBV) es una entidad del gobierno mexicano encargada de supervisar y regular a las entidades financieras para garantizar su estabilidad y correcto funcionamiento.
-                  </p>
-                </div>
-              </div>
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  ¿Qué es la Ley Fintech y a quiénes regula?
-                </button>
-                <div class="faq-answer">
-                  <p>
-                    La Ley para Regular las Instituciones de Tecnología Financiera, conocida como Ley Fintech, regula a las instituciones que ofrecen servicios financieros mediante tecnologías innovadoras, como las Instituciones de Financiamiento Colectivo y las Instituciones de Fondos de Pago Electrónico.
-                  </p>
-                </div>
-              </div>
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  ¿Cuáles son los reportes regulatorios que deben presentar las IFC?
-                </button>
-                <div class="faq-answer">
-                  <p>
-                    Las Instituciones de Financiamiento Colectivo (IFC) deben presentar diversos reportes regulatorios a la CNBV, incluyendo información sobre préstamos otorgados, fuentes de financiamiento y otros datos financieros relevantes, según lo establecido en el Anexo 18 de las disposiciones aplicables.
-                  </p>
-                </div>
-              </div>
-              <!-- Agrega más preguntas y respuestas según sea necesario -->
-            </div>
-          </div>
-        </section>
+<section id="infoGeneral" class="section active">
+  <div class="info-header">
+    <h2>Información General y Ayuda</h2>
+    <p class="info-subtitle">
+      Esta plataforma es una herramienta de PorCuanto S.A. de C.V., IFC, diseñada para la gestión de reportes regulatorios a la CNBV.
+    </p>
+  </div>
+
+  <div class="info-content">
+    <!-- Indicadores -->
+    <div class="indicators">
+      <div class="indicator">
+        <i class="fas fa-info-circle icon"></i>
+        <div class="indicator-content">
+          <h3>¿Qué es la Ley Fintech?</h3>
+          <p>
+            Regula a las instituciones de financiamiento colectivo y las plataformas de fondos de pago electrónico.
+          </p>
+        </div>
+      </div>
+      <div class="indicator">
+        <i class="fas fa-file-alt icon"></i>
+        <div class="indicator-content">
+          <h3>Reportes Obligatorios</h3>
+          <p>
+            Incluye reportes financieros y de cumplimiento para las Instituciones de Financiamiento Colectivo.
+          </p>
+        </div>
+      </div>
+      <div class="indicator">
+        <i class="fas fa-user-shield icon"></i>
+        <div class="indicator-content">
+          <h3>Disposiciones PLD</h3>
+          <p>
+            Cumplimiento de normas para prevenir lavado de dinero y financiamiento al terrorismo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preguntas Frecuentes (FAQ) -->
+    <div class="faq-section">
+      <h3>Preguntas Frecuentes</h3>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Qué establece el Anexo 18 de Fintech?
+        </button>
+        <div class="faq-answer">
+          <p>
+            El Anexo 18 detalla las obligaciones de reportes financieros de las IFC, incluyendo estados financieros, reclasificaciones y consolidaciones. Estos reportes aseguran transparencia y supervisión regulatoria.
+          </p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Qué son las disposiciones PLD aplicables a las Fintech?
+        </button>
+        <div class="faq-answer">
+          <p>
+            Las disposiciones PLD (Prevención de Lavado de Dinero) obligan a las Fintech a identificar a sus clientes, monitorear operaciones y reportar actividades sospechosas a la CNBV.
+          </p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          ¿Qué sucede si no cumplo con los reportes regulatorios?
+        </button>
+        <div class="faq-answer">
+          <p>
+            El incumplimiento puede resultar en sanciones administrativas por parte de la CNBV, incluyendo multas y restricciones operativas para la institución.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
                 
 

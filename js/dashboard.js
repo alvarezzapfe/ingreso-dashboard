@@ -223,3 +223,20 @@ function toggleFaq(element) {
   // Alternar la visibilidad de la respuesta seleccionada
   answer.style.display = isVisible ? "none" : "block";
 }
+
+// seccion info general
+
+function toggleFaq(element) {
+  const answer = element.nextElementSibling;
+  const isActive = answer.classList.contains("active");
+
+  // Cerrar todas las FAQ abiertas
+  document.querySelectorAll(".faq-answer").forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  // Abrir o cerrar la actual
+  if (!isActive) {
+    answer.classList.add("active");
+  }
+}
