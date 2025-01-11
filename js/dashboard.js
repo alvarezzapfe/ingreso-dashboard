@@ -161,3 +161,9 @@ function logout() {
   alert("Cerrando sesión...");
   window.location.href = "index.html"; // Redirige a la página de inicio o login
 }
+
+// para mobile version
+function toggleSidebar() {
+  const sidebar = document.querySelector(".sidebar");
+  sidebar.classList.toggle("collapsed"); // Agregar/quitar la clase 'collapsed'
+}
