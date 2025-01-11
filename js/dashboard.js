@@ -167,3 +167,9 @@ function toggleSidebar() {
   const sidebar = document.querySelector(".sidebar");
   sidebar.classList.toggle("collapsed"); // Agregar/quitar la clase 'collapsed'
 }
+
+// Función para alternar el menú secundario
+function toggleMobileMenu() {
+  const mobileMenu = document.getElementById("mobileSidebarMenu");
+  mobileMenu.classList.toggle("show"); // Agrega o quita la clase "show"
+}

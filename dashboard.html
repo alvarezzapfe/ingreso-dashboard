@@ -18,6 +18,10 @@
   <body>
     <!-- Barra lateral -->
     <div class="sidebar">
+      <!-- Botón de hamburguesa secundario (visible solo en móviles) -->
+      <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+
+      <!-- Enlaces de la barra lateral -->
       <div class="toggle-button" onclick="toggleSidebar()">&#9664;</div>
       <a href="javascript:void(0)" onclick="showSection('dashboard')">
         <i class="fas fa-chart-line"></i> <span class="text"> Dashboard</span>
@@ -49,6 +53,20 @@
         <i class="fas fa-sign-out-alt"></i>
         <span class="text"> Salir</span>
       </a>
+    </div>
+    <!-- Menú secundario desplegable -->
+    <div id="mobileSidebarMenu" class="mobile-menu">
+      <a href="javascript:void(0)" onclick="showSection('dashboard')"
+        >Dashboard</a
+      >
+      <a href="javascript:void(0)" onclick="showSection('reportesFinancieros')"
+        >Reportes</a
+      >
+      <a href="javascript:void(0)" onclick="showSection('reportesPLD')">PLD</a>
+      <a href="javascript:void(0)" onclick="showSection('infoGeneral')"
+        >Información</a
+      >
+      <a href="javascript:void(0)" onclick="logout()">Salir</a>
     </div>
 
     <!-- Botón de menú hamburguesa -->

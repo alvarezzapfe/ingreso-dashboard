@@ -609,3 +609,53 @@ footer {
     width: 90%; /* Más ancho en móvil */
   }
 }
+
+/*  mobile hambuerguer */
+
+/* Botón de menú hamburguesa en la barra lateral (solo móvil) */
+.mobile-menu-btn {
+  display: none; /* Oculto por defecto */
+  font-size: 24px;
+  color: #fff;
+  background-color: #003366;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Menú desplegable en la barra lateral */
+.mobile-menu {
+  display: none; /* Oculto por defecto */
+  background-color: #001a33;
+  color: white;
+  position: absolute;
+  top: 60px; /* Debajo del botón hamburguesa */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mostrar el botón de menú y el menú secundario en móviles */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+    margin-bottom: 10px; /* Espaciado inferior */
+  }
+
+  .mobile-menu.show {
+    display: block; /* Mostrar el menú secundario al activarlo */
+  }
+}
