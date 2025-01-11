@@ -61,6 +61,10 @@ body {
   margin-left: -20px;
   pointer-events: none;
 }
+/*  Log out */
+.sidebar .logout {
+  margin-top: auto; /* Empuja la opción "Salir" al final */
+}
 
 /* Botón Hamburger */
 
@@ -74,7 +78,7 @@ body {
   position: absolute;
   top: 50px;
   left: 0;
-  background-color: #003366;
+  background: linear-gradient(180deg, #003366, #001a33);
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
@@ -220,7 +224,7 @@ button:hover {
 
 /* Footer */
 footer {
-  background-color: #003366; /* Azul marino */
+  background: linear-gradient(180deg, #003366, #001a33); /* Azul marino */
   color: white;
   text-align: center;
   padding: 10px;
@@ -258,7 +262,7 @@ footer {
 }
 
 .logo img {
-  width: 200px; /* Ajusta el tamaño según necesites */
+  width: 150px; /* Ajusta el tamaño según necesites */
   height: auto;
   display: block;
   margin: 0 auto; /* Centra el logo horizontalmente */
@@ -464,7 +468,7 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
-  width: 70px;
+  width: 41.5px;
   height: 100%;
   background: linear-gradient(180deg, #003366, #001a33);
   padding-top: 20px;
@@ -550,3 +554,72 @@ footer {
 .popup-content button:hover {
   background: #0056b3;
 }
+
+/*  Version Mobile  */
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Ajustes para la barra lateral */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Oculta la barra lateral */
+    width: 250px; /* Ancho completo al expandir */
+    height: 100%; /* Altura completa */
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.collapsed {
+    left: 0; /* Muestra la barra lateral */
+  }
+
+  /* Botón de menú */
+  .menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+  }
+
+  /* Contenido principal */
+  .content {
+    margin-left: 0;
+    padding-top: 60px; /* Ajustar espacio para el botón de menú */
+  }
+
+  /* Ajustar los títulos y textos */
+  .indicators {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 10px; /* Espaciado reducido */
+  }
+
+  .indicator {
+    padding: 10px;
+  }
+
+  /* Ajustes para tablas */
+  .table {
+    font-size: 12px; /* Texto más pequeño */
+    overflow-x: auto; /* Habilitar scroll horizontal */
+  }
+
+  /* Pop-ups centrados en móvil */
+  .popup-content {
+    width: 90%; /* Más ancho en móvil */
+  }
+}
+
+@media (max-width: 768px) {
+  h1,
+  h2,
+  h3 {
+    font-size: 18px;
+  }
+  button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+/*   HASTA AQUI CSS PARA CELULARES   */

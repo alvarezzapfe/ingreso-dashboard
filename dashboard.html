@@ -20,16 +20,34 @@
     <div class="sidebar">
       <div class="toggle-button" onclick="toggleSidebar()">&#9664;</div>
       <a href="javascript:void(0)" onclick="showSection('dashboard')">
-        <i class="fas fa-home"></i> <span class="text">Dashboard</span>
+        <i class="fas fa-chart-line"></i> <span class="text"> Dashboard</span>
       </a>
       <a href="javascript:void(0)" onclick="showSection('reportesFinancieros')">
-        <i class="fas fa-file-alt"></i> <span class="text">Reportes</span>
+        <i class="fas fa-file-alt"></i> <span class="text"> Reportes</span>
       </a>
       <a href="javascript:void(0)" onclick="showSection('reportesPLD')">
-        <i class="fas fa-file-alt"></i> <span class="text">PLD</span>
+        <i class="fas fa-file-alt"></i> <span class="text"> PLD</span>
       </a>
       <a href="javascript:void(0)" onclick="showSection('usuariosEmpresa')">
-        <i class="fas fa-users"></i> <span class="text">Usuarios</span>
+        <i class="fas fa-user"></i> <span class="text"> Usuarios</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showSection('ayudaUsuario')">
+        <i class="fas fa-question-circle"></i>
+        <span class="text"> Ayuda</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showSection('infoGeneral')">
+        <i class="fas fa-search"></i>
+        <span class="text"> Información</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showSection('administrador')">
+        <i class="fas fa-user-circle"></i>
+        <span class="text"> Administrador</span>
+      </a>
+
+      <!-- Salir -->
+      <a href="javascript:void(0)" class="logout" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="text"> Salir</span>
       </a>
     </div>
 
@@ -45,7 +63,11 @@
         class="menu-link"
         >Contacto</a
       >
-      <a href="index.html" class="menu-link">Cerrar sesión</a>
+      <a href="index.html" class="menu-link">
+        Cerrar sesión
+        <br />
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
     </div>
 
     <!-- POP UP AYUDA -->

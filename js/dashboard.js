@@ -154,3 +154,10 @@ function transformarReporteR08(fileInputId, resultId) {
 
   reader.readAsArrayBuffer(file);
 }
+
+// cerrar sesión
+function logout() {
+  // Lógica para cerrar sesión
+  alert("Cerrando sesión...");
+  window.location.href = "index.html"; // Redirige a la página de inicio o login
+}
