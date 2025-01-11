@@ -612,7 +612,7 @@ footer {
 
 /*  mobile hambuerguer */
 
-/* Botón de menú hamburguesa en la barra lateral (solo móvil) */
+/* Botón de menú hamburguesa en la barra lateral */
 .mobile-menu-btn {
   display: none; /* Oculto por defecto */
   font-size: 24px;
@@ -621,6 +621,8 @@ footer {
   padding: 10px;
   text-align: center;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }
 
 /* Menú desplegable en la barra lateral */
@@ -628,12 +630,9 @@ footer {
   display: none; /* Oculto por defecto */
   background-color: #001a33;
   color: white;
-  position: absolute;
-  top: 60px; /* Debajo del botón hamburguesa */
-  left: 0;
-  width: 100%;
-  z-index: 1000;
   padding: 10px 0;
+  z-index: 1100;
+  position: relative;
 }
 
 .mobile-menu a {
@@ -648,14 +647,18 @@ footer {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Mostrar el botón de menú y el menú secundario en móviles */
+/* Estilos específicos para móviles */
 @media (max-width: 768px) {
   .mobile-menu-btn {
-    display: block;
-    margin-bottom: 10px; /* Espaciado inferior */
+    display: block; /* Mostrar el botón en móviles */
   }
 
   .mobile-menu.show {
-    display: block; /* Mostrar el menú secundario al activarlo */
+    display: block; /* Mostrar el menú desplegable cuando esté activo */
+  }
+
+  .content {
+    margin-left: 0;
+    padding-top: 60px; /* Espacio para el botón del menú */
   }
 }

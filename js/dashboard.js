@@ -168,7 +168,7 @@ function toggleSidebar() {
   sidebar.classList.toggle("collapsed"); // Agregar/quitar la clase 'collapsed'
 }
 
-// Función para alternar el menú secundario
+// Función para alternar el menú secundario en la barra lateral
 function toggleMobileMenu() {
   const mobileMenu = document.getElementById("mobileSidebarMenu");
   mobileMenu.classList.toggle("show"); // Agrega o quita la clase "show"
