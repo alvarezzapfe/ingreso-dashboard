@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,37 +20,26 @@
     <div class="hero_area">
       <!-- Navbar -->
       <header class="header_section">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="index.html">
-              <span>Reportes Regulatorios</span>
-            </a>
-            <div class="logo">
-              <img src="images/Crowdlink - Logotipo-01.png" alt="" />
-            </div>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Inicio</a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contacto</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+        <nav class="navbar">
+          <a class="navbar-brand" href="index.html">
+            <span>Plataforma de Reportes Regulatorios</span>
+          </a>
+          <div class="logo">
+            <img
+              src="images/Crowdlink - Logotipo-01.png"
+              alt="Crowdlink Logo"
+            />
+          </div>
+          <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        </nav>
+        <!-- Hamburger Menu -->
+        <div id="hamburgerMenu" class="menu-dropdown">
+          <ul>
+            <li onclick="showContactPopup()">Contacto</li>
+            <li onclick="alert('Sección de ayuda próximamente disponible.')">
+              Ayuda
+            </li>
+          </ul>
         </div>
       </header>
 
@@ -118,6 +107,30 @@
       </div>
     </div>
 
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+      <div class="popup-content">
+        <h3>Contacto</h3>
+        <p>Teléfono: +52 123 456 7890</p>
+        <p>Correo: contacto@empresa.com</p>
+        <button onclick="closePopup()">Cerrar</button>
+      </div>
+    </div>
+
     <script src="js/ingreso.js"></script>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("hamburgerMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+
+      function showContactPopup() {
+        document.getElementById("contactPopup").style.display = "block";
+      }
+
+      function closePopup() {
+        document.getElementById("contactPopup").style.display = "none";
+      }
+    </script>
   </body>
 </html>

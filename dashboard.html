@@ -10,33 +10,53 @@
       rel="stylesheet"
     />
   </head>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"
+  />
+
   <body>
     <!-- Barra lateral -->
     <div class="sidebar">
-      <a href="javascript:void(0)" onclick="showSection('dashboard')"
-        >Dashboard</a
-      >
-      <a href="javascript:void(0)" onclick="showSection('reportesFinancieros')"
-        >Reportes Regulatorios</a
-      >
-      <a href="javascript:void(0)" onclick="showSection('usuariosEmpresa')"
-        >Usuarios</a
-      >
+      <div class="toggle-button" onclick="toggleSidebar()">&#9664;</div>
+      <a href="javascript:void(0)" onclick="showSection('dashboard')">
+        <i class="fas fa-home"></i> <span class="text">Dashboard</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showSection('reportesFinancieros')">
+        <i class="fas fa-file-alt"></i> <span class="text">Reportes</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showSection('reportesPLD')">
+        <i class="fas fa-file-alt"></i> <span class="text">PLD</span>
+      </a>
+      <a href="javascript:void(0)" onclick="showSection('usuariosEmpresa')">
+        <i class="fas fa-users"></i> <span class="text">Usuarios</span>
+      </a>
     </div>
 
-    <!-- Botón de menú -->
+    <!-- Botón de menú hamburguesa -->
     <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
 
-    <!-- Opciones de menú superior -->
+    <!-- Opciones del menú -->
     <div id="menuOptions" class="menu-options">
       <a href="index.html" class="menu-link">Inicio</a>
       <a
         href="javascript:void(0)"
-        onclick="showSection('perfil')"
+        onclick="showContactPopup()"
         class="menu-link"
-        >Perfil</a
+        >Contacto</a
       >
       <a href="index.html" class="menu-link">Cerrar sesión</a>
+    </div>
+
+    <!-- POP UP AYUDA -->
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+      <div class="popup-content">
+        <h3>Contacto</h3>
+        <p>Teléfono: +52 123 456 7890</p>
+        <p>Correo: contacto@empresa.com</p>
+        <button onclick="closePopup()">Cerrar</button>
+      </div>
     </div>
 
     <!-- Contenido principal -->
@@ -210,6 +230,58 @@
                 </button>
                 <button onclick="descargar('resultR27')">Descargar JSON</button>
                 <pre id="resultR27"></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección Reportes PLD -->
+        <section id="reportesPLD" class="section active">
+          <h2>Reportes Regulatorios PLD: Art. 66, 69 & 71</h2>
+          <div class="container">
+            <!-- Art. 66 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('A66')">
+                Art. 66 Operaciones Inusuales
+              </h2>
+              <div id="A66" class="opciones ocultar">
+                <h3>Operaciones Inusuales</h3>
+                <input type="file" id="fileR01" accept=".xlsx" />
+                <button onclick="transformar('fileR01', 'resultR01')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR01')">Descargar JSON</button>
+                <pre id="resultA66"></pre>
+              </div>
+            </div>
+            <!-- Art. 66 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('A66')">
+                Art. 66 Operaciones Inusuales
+              </h2>
+              <div id="A66" class="opciones ocultar">
+                <h3>Operaciones Inusuales</h3>
+                <input type="file" id="fileR01" accept=".xlsx" />
+                <button onclick="transformar('fileR01', 'resultR01')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR01')">Descargar JSON</button>
+                <pre id="resultA66"></pre>
+              </div>
+            </div>
+            <!-- Art. 66 -->
+            <div class="serie">
+              <h2 onclick="toggleOptions('A66')">
+                Art. 66 Operaciones Inusuales
+              </h2>
+              <div id="A66" class="opciones ocultar">
+                <h3>Operaciones Inusuales</h3>
+                <input type="file" id="fileR01" accept=".xlsx" />
+                <button onclick="transformar('fileR01', 'resultR01')">
+                  Transformar a JSON
+                </button>
+                <button onclick="descargar('resultR01')">Descargar JSON</button>
+                <pre id="resultA66"></pre>
               </div>
             </div>
           </div>

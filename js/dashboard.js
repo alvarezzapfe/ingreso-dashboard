@@ -27,23 +27,27 @@ function showInfoTab(tabId) {
   activeTab.classList.add("active");
 }
 
-// Gráfica de credito seccion dashboard
+// POP UP
+function showContactPopup() {
+  const popup = document.getElementById("contactPopup");
+  popup.style.display = "block"; // Mostrar el pop-up
+}
 
-document.getElementById("fileInput").addEventListener("change", handleFile);
+function closePopup() {
+  const popup = document.getElementById("contactPopup");
+  popup.style.display = "none"; // Ocultar el pop-up
+}
 
-function handleFile(event, resultId) {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    const data = new Uint8Array(e.target.result);
-    const workbook = XLSX.read(data, { type: "array" });
-    const sheetName = workbook.SheetNames[0];
-    const sheet = workbook.Sheets[sheetName];
-    const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-    console.log("JSON result:", json);
-    displayJSON(json, resultId);
-  };
-  reader.readAsArrayBuffer(file);
+// Toggle Hamburger Menu
+function toggleHamburgerMenu() {
+  const menu = document.getElementById("hamburgerMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+// Toggle Sidebar
+function toggleSidebar() {
+  const sidebar = document.querySelector(".sidebar");
+  sidebar.classList.toggle("collapsed");
 }
 
 function displayJSON(json, resultId) {
@@ -91,4 +95,62 @@ function descargar(resultId) {
   link.href = URL.createObjectURL(blob);
   link.download = `${resultId}.json`;
   link.click();
+}
+
+// Transformar Reporte R01
+// Transformar Excel a JSON según el reporte
+function transformarReporteR01(fileInputId, resultId) {
+  const fileInput = document.getElementById(fileInputId);
+  const result = document.getElementById(resultId);
+
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const data = new Uint8Array(e.target.result);
+    const workbook = XLSX.read(data, { type: "array" });
+
+    // Algoritmo único para el reporte R01
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+    const transformedData = json.map((row) => {
+      return {
+        codigo: row[0],
+        descripcion: row[1],
+      };
+    });
+
+    result.textContent = JSON.stringify(transformedData, null, 2);
+  };
+
+  reader.readAsArrayBuffer(file);
+}
+
+function transformarReporteR08(fileInputId, resultId) {
+  const fileInput = document.getElementById(fileInputId);
+  const result = document.getElementById(resultId);
+
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const data = new Uint8Array(e.target.result);
+    const workbook = XLSX.read(data, { type: "array" });
+
+    // Algoritmo único para el reporte R08
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+    const transformedData = json.map((row) => {
+      return {
+        banco: row[0],
+        montoPrestamo: row[1],
+      };
+    });
+
+    result.textContent = JSON.stringify(transformedData, null, 2);
+  };
+
+  reader.readAsArrayBuffer(file);
 }
