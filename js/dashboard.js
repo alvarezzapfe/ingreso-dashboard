@@ -173,3 +173,53 @@ function toggleMobileMenu() {
   const mobileMenu = document.getElementById("mobileSidebarMenu");
   mobileMenu.classList.toggle("show"); // Agrega o quita la clase "show"
 }
+
+// Mes actual en dashboard
+
+// JavaScript para el mes actual
+document.addEventListener("DOMContentLoaded", () => {
+  // Mostrar el mes actual
+  const currentMonthElement = document.getElementById("currentMonth");
+  const months = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+  const today = new Date();
+  const month = months[today.getMonth()];
+  currentMonthElement.textContent = month;
+
+  // Calcular días restantes para el final del mes
+  const daysToMonthEndElement = document.getElementById("daysToMonthEnd");
+  const year = today.getFullYear();
+  const monthEnd = new Date(year, today.getMonth() + 1, 0); // Último día del mes
+  const daysRemaining = Math.ceil((monthEnd - today) / (1000 * 60 * 60 * 24));
+
+  daysToMonthEndElement.textContent = `${daysRemaining} día${
+    daysRemaining !== 1 ? "s" : ""
+  } restantes`;
+});
+
+// SECCION FAQ de info general
+
+function toggleFaq(element) {
+  const answer = element.nextElementSibling;
+  const isVisible = answer.style.display === "block";
+
+  // Cerrar todas las respuestas abiertas
+  document.querySelectorAll(".faq-answer").forEach((ans) => {
+    ans.style.display = "none";
+  });
+
+  // Alternar la visibilidad de la respuesta seleccionada
+  answer.style.display = isVisible ? "none" : "block";
+}

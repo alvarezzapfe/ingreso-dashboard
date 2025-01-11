@@ -16,6 +16,8 @@
     <link href="css/ingreso.css" rel="stylesheet" />
   </head>
 
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <title>Ingreso</title>
   <body>
     <div class="hero_area">
       <!-- Navbar -->
@@ -32,10 +34,11 @@
           </div>
           <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         </nav>
+
         <!-- Hamburger Menu -->
         <div id="hamburgerMenu" class="menu-dropdown">
           <ul>
-            <li onclick="showContactPopup()">Contacto</li>
+            <li onclick="togglePopup()">Contacto</li>
             <li onclick="alert('Sección de ayuda próximamente disponible.')">
               Ayuda
             </li>
@@ -109,12 +112,9 @@
 
     <!-- Contact Popup -->
     <div id="contactPopup" class="popup">
-      <div class="popup-content">
-        <h3>Contacto</h3>
-        <p>Teléfono: +52 123 456 7890</p>
-        <p>Correo: contacto@empresa.com</p>
-        <button onclick="closePopup()">Cerrar</button>
-      </div>
+      <h3>Contacto</h3>
+      <p>Teléfono: +52 123 456 7890</p>
+      <p>Correo: contacto@empresa.com</p>
     </div>
 
     <script src="js/ingreso.js"></script>
@@ -124,12 +124,10 @@
         menu.style.display = menu.style.display === "block" ? "none" : "block";
       }
 
-      function showContactPopup() {
-        document.getElementById("contactPopup").style.display = "block";
-      }
-
-      function closePopup() {
-        document.getElementById("contactPopup").style.display = "none";
+      function togglePopup() {
+        const popup = document.getElementById("contactPopup");
+        popup.style.display =
+          popup.style.display === "block" ? "none" : "block";
       }
     </script>
   </body>

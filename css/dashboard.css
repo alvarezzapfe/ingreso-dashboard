@@ -117,6 +117,78 @@ body {
   display: block;
 }
 
+/* DASHBOARD MEJORAS */
+
+/* General para Dashboard */
+#dashboard {
+  padding: 20px;
+  background: linear-gradient(180deg, #f4f4f9, #e8e8f5);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+  font-size: 28px;
+  color: #003366;
+  font-weight: bold;
+}
+
+.dashboard-header .dashboard-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Indicadores */
+/* Indicadores */
+.indicators {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.indicator {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.indicator:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Iconos de Indicadores */
+.indicator .icon {
+  font-size: 40px;
+  color: #007bff;
+}
+
+/* Contenido de Indicadores */
+.indicator-content h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.indicator-content .indicator-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 5px;
+}
+
 /* Indicadores */
 .indicators {
   display: grid;
@@ -220,6 +292,77 @@ button:hover {
 
 .table button:hover {
   background-color: #0056b3; /* Azul más oscuro */
+}
+
+/*  seccion de info general   */
+
+/* Estilos para la sección de Información General */
+#infoGeneral {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.info-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info-header h2 {
+  font-size: 28px;
+  color: #003366;
+  font-weight: bold;
+}
+
+.info-header .info-subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Estilos para la sección de FAQ */
+.faq-section {
+  margin-top: 30px;
+}
+
+.faq-section h3 {
+  font-size: 24px;
+  color: #003366;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+}
+
+.faq-question {
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #0056b3;
+}
+
+.faq-answer {
+  display: none;
+  background: #e9ecef;
+  padding: 15px;
+  border-radius: 0 0 8px 8px;
+  margin-top: -8px;
+  font-size: 14px;
+  color: #333;
 }
 
 /* Footer */
@@ -661,4 +804,39 @@ footer {
     margin-left: 0;
     padding-top: 60px; /* Espacio para el botón del menú */
   }
+}
+
+/* Contenedor de la barra de búsqueda */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #f1f1f1; /* Fondo gris claro */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 400px;
+  margin: 0 auto; /* Centrar horizontalmente */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícono dentro de la barra */
+.search-icon {
+  color: #555; /* Gris oscuro */
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Campo de entrada */
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  flex: 1; /* Ocupa el espacio restante */
+  color: #333;
+}
+
+/* Placeholder estilizado */
+.search-bar input::placeholder {
+  color: #aaa; /* Gris claro */
 }

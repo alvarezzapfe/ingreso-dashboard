@@ -139,45 +139,65 @@ body {
 }
 
 /* Popup Styling */
-.popup {
+/* Hamburger Menu */
+.menu-dropdown {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #003366, #001a33);
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  background: #003366;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
   z-index: 1100;
 }
 
-.popup-content {
-  background: #001a33;
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  margin: 100px auto;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.menu-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.popup-content h3 {
-  margin-bottom: 15px;
-}
-
-.popup-content button {
-  background: #007bff;
+.menu-dropdown ul li {
+  padding: 10px 20px;
   color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.popup-content button:hover {
-  background: #0056b3;
+.menu-dropdown ul li:hover {
+  background-color: #001a33;
 }
 
+/* Popup */
+.popup {
+  display: none;
+  position: absolute;
+  top: 110px;
+  right: 15px;
+  background: linear-gradient(180deg, #003366, #001a33);
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  z-index: 1200;
+  width: 280px;
+  text-align: center;
+}
+
+.popup h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}
+
+.popup p {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/*  Logo */
 .logo img {
   width: 200px; /* Ajusta el tamaño según necesites */
   height: auto;

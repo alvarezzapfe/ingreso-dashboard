@@ -41,3 +41,44 @@ function ingresarUsuario() {
     alert("Por favor, ingresa tu correo electrónico y contraseña.");
   }
 }
+
+document.addEventListener("click", (event) => {
+  const popup = document.getElementById("contactPopup");
+  const isClickInside =
+    popup.contains(event.target) || event.target.closest(".menu-item");
+
+  if (!isClickInside) {
+    popup.style.display = "none";
+  }
+});
+
+// POP UP
+document.addEventListener("DOMContentLoaded", () => {
+  const menuIcon = document.getElementById("menuIcon");
+  const hamburgerMenu = document.getElementById("hamburgerMenu");
+  const contactPopup = document.getElementById("contactPopup");
+
+  // Toggle Hamburger Menu
+  menuIcon.addEventListener("click", () => {
+    hamburgerMenu.style.display =
+      hamburgerMenu.style.display === "block" ? "none" : "block";
+    contactPopup.style.display = "none"; // Cierra el popup si el menú se abre/cierra
+  });
+
+  // Toggle Popup
+  window.togglePopup = function () {
+    contactPopup.style.display =
+      contactPopup.style.display === "block" ? "none" : "block";
+  };
+
+  // Close Popup when clicking outside
+  document.addEventListener("click", (event) => {
+    if (
+      !contactPopup.contains(event.target) &&
+      !hamburgerMenu.contains(event.target) &&
+      event.target.id !== "menuIcon"
+    ) {
+      contactPopup.style.display = "none";
+    }
+  });
+});

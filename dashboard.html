@@ -9,12 +9,14 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    
   </head>
   <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     rel="stylesheet"
   />
-
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <title>Ingreso</title>
   <body>
     <!-- Barra lateral -->
     <div class="sidebar">
@@ -32,13 +34,10 @@
       <a href="javascript:void(0)" onclick="showSection('reportesPLD')">
         <i class="fas fa-file-alt"></i> <span class="text"> PLD</span>
       </a>
-      <a href="javascript:void(0)" onclick="showSection('usuariosEmpresa')">
-        <i class="fas fa-user"></i> <span class="text"> Usuarios</span>
+      <a href="javascript:void(0)" onclick="showSection('usuario')">
+        <i class="fas fa-user"></i> <span class="text"> Usuario</span>
       </a>
-      <a href="javascript:void(0)" onclick="showSection('ayudaUsuario')">
-        <i class="fas fa-question-circle"></i>
-        <span class="text"> Ayuda</span>
-      </a>
+     
       <a href="javascript:void(0)" onclick="showSection('infoGeneral')">
         <i class="fas fa-search"></i>
         <span class="text"> Información</span>
@@ -93,8 +92,9 @@
     <div id="contactPopup" class="popup">
       <div class="popup-content">
         <h3>Contacto</h3>
-        <p>Teléfono: +52 123 456 7890</p>
-        <p>Correo: contacto@empresa.com</p>
+        <p>Teléfono: +52 55 1234 1234</p>
+        <p>visita: www.crowdlink.mx</p>
+        <p>Correo: contacto@crowdlink.mx</p>
         <button onclick="closePopup()">Cerrar</button>
       </div>
     </div>
@@ -105,29 +105,56 @@
         <h1>Plataforma de Reportería Regulatoria</h1>
       </header>
 
-      <div class="container">
-        <!-- Sección: Dashboard -->
-        <section id="dashboard" class="section active">
-          <h2>Dashboard</h2>
-          <div class="indicators">
-            <div class="indicator">
-              <h3>Fecha límite para enviar Reportes SITI</h3>
-              <p>31/01/2024</p>
+      
+        <div class="container">
+          <!-- Sección: Dashboard -->
+          <section id="dashboard" class="section active">
+            <div class="dashboard-header">
+              <h2>Dashboard</h2>
+              <p class="dashboard-subtitle">
+                Esta Plataforma es una herramienta de PorCuanto S.A. de C.V., IFC para gestión de reportes regulatorios a CNBV.
+              </p>
             </div>
-            <div class="indicator">
-              <h3>Reportes Correspondientes a Periodo Actual</h3>
-              <p>6</p>
+            <div class="indicators">
+              <div class="indicator">
+                <i class="fas fa-calendar-alt icon"></i>
+                <div class="indicator-content">
+                  <h3>Fecha límite para enviar Reportes SITI</h3>
+                  <p class="indicator-value">31/01/2024</p>
+                </div>
+              </div>
+              <div class="indicator">
+                <i class="fas fa-file-alt icon"></i>
+                <div class="indicator-content">
+                  <h3>Reportes Correspondientes a Periodo Actual</h3>
+                  <p class="indicator-value">6</p>
+                </div>
+              </div>
+              <div class="indicator">
+                <i class="fas fa-calendar-check icon"></i>
+                <div class="indicator-content">
+                  <h3>Días restantes para finalizar el mes</h3>
+                  <p class="indicator-value" id="daysToMonthEnd">Cargando...</p>
+                </div>
+              </div>
+              <div class="indicator">
+                <i class="fas fa-cloud icon"></i>
+                <div class="indicator-content">
+                  <h3>Funcionalidad de AWS</h3>
+                  <p class="indicator-value">Activa</p>
+                </div>
+              </div>
+              <!-- Nueva caja para el mes actual -->
+              <div class="indicator">
+                <i class="fas fa-calendar icon"></i>
+                <div class="indicator-content">
+                  <h3>Mes Actual</h3>
+                  <p class="indicator-value" id="currentMonth"></p>
+                </div>
+              </div>
             </div>
-            <div class="indicator">
-              <h3>Incidencias</h3>
-              <p>0</p>
-            </div>
-            <div class="indicator">
-              <h3>Funcionalidad de AWS</h3>
-              <p>Activa</p>
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
         <!-- Sección: Reportes Regulatorios -->
         <section id="reportesFinancieros" class="section active">
@@ -327,8 +354,99 @@
           </div>
         </section>
 
+        <!-- Sección: Usuario personal -->
+        <section id="usuario" class="section">
+          <h2>Usuario de la Plataforma</h2>
+          <p>Consulta tu usuario</p>
+
+          <!-- Tabla de usuarios -->
+          <div class="usuarios-container">
+            <table class="usuarios-tabla">
+              <thead>
+                <tr>
+                  <th>Permiso</th>
+                  <th>Usuario</th>
+                  <th>Nombre Completo</th>
+                  <th>Fecha de Registro</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Administrador</td>
+                  <td>admin@empresa.com</td>
+                  <td>Juan Pérez</td>
+                  <td>2024-01-10</td>
+                  <td>
+                    <button
+                      class="btn-detalle-usuario"
+                      onclick="verDetalleUsuario('1')"
+                    >
+                      Ver Detalle
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        
+          <!-- Sección: Información General -->
+        <section id="infoGeneral" class="section active">
+          <div class="info-header">
+            <h2>Información de Ayuda</h2>
+            <p class="info-subtitle">
+              Esta plataforma es una herramienta de PorCuanto S.A. de C.V., IFC para la gestión de reportes regulatorios a la CNBV.
+            </p>
+          </div>
+          <div class="info-content">
+            <!-- Indicadores existentes -->
+            <div class="indicators">
+              <!-- Indicadores previos aquí -->
+            </div>
+            <!-- Sección de Preguntas Frecuentes -->
+            <div class="faq-section">
+              <h3>Preguntas Frecuentes</h3>
+              <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                  ¿Qué es la CNBV y cuál es su función?
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    La Comisión Nacional Bancaria y de Valores (CNBV) es una entidad del gobierno mexicano encargada de supervisar y regular a las entidades financieras para garantizar su estabilidad y correcto funcionamiento.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                  ¿Qué es la Ley Fintech y a quiénes regula?
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    La Ley para Regular las Instituciones de Tecnología Financiera, conocida como Ley Fintech, regula a las instituciones que ofrecen servicios financieros mediante tecnologías innovadoras, como las Instituciones de Financiamiento Colectivo y las Instituciones de Fondos de Pago Electrónico.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                  ¿Cuáles son los reportes regulatorios que deben presentar las IFC?
+                </button>
+                <div class="faq-answer">
+                  <p>
+                    Las Instituciones de Financiamiento Colectivo (IFC) deben presentar diversos reportes regulatorios a la CNBV, incluyendo información sobre préstamos otorgados, fuentes de financiamiento y otros datos financieros relevantes, según lo establecido en el Anexo 18 de las disposiciones aplicables.
+                  </p>
+                </div>
+              </div>
+              <!-- Agrega más preguntas y respuestas según sea necesario -->
+            </div>
+          </div>
+        </section>
+
+                
+
         <!-- Sección: Usuarios -->
-        <section id="usuariosEmpresa" class="section">
+        <section id="administrador" class="section">
           <h2>Usuarios de la Plataforma</h2>
           <p>Gestiona y visualiza los usuarios registrados en la aplicación.</p>
 
