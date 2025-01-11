@@ -557,36 +557,50 @@ footer {
 
 /*  Version Mobile  */
 
-/* Responsividad para pantallas pequeñas */
+/* Ajustes específicos para dispositivos móviles */
 @media (max-width: 768px) {
-  /* Ajustes para la barra lateral */
   .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Oculta la barra lateral */
-    width: 250px; /* Ancho completo al expandir */
-    height: 100%; /* Altura completa */
+    left: -250px; /* Ocultar barra lateral inicialmente */
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(180deg, #003366, #001a33); /* Fondo azul */
     z-index: 1000;
     transition: left 0.3s ease;
   }
 
   .sidebar.collapsed {
-    left: 0; /* Muestra la barra lateral */
+    left: 0; /* Mostrar barra lateral cuando está abierta */
   }
 
-  /* Botón de menú */
   .menu-btn {
     position: fixed;
     top: 10px;
     left: 10px;
     z-index: 1100;
+    background-color: #003366;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
   }
 
-  /* Contenido principal */
-  .content {
-    margin-left: 0;
-    padding-top: 60px; /* Ajustar espacio para el botón de menú */
+  .menu-btn:hover {
+    background-color: #001a33;
   }
+
+  .content {
+    margin-left: 0; /* Asegura que el contenido ocupe todo el ancho */
+    padding-top: 50px; /* Espacio para el botón de menú */
+  }
+
+  .sidebar a {
+    text-align: left; /* Ajusta el texto de los enlaces */
+    padding: 10px 15px;
+  }
+}
 
   /* Ajustar los títulos y textos */
   .indicators {
