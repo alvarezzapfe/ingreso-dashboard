@@ -1,3 +1,4 @@
+// Inicializar usuarios en localStorage
 const SUPER_ADMIN = {
   nombre: "Luis Alvarez",
   email: "luis@crowdlink.mx",
@@ -5,23 +6,56 @@ const SUPER_ADMIN = {
   password: "admin123",
 };
 
-// Obtener usuarios de localStorage o inicializar con el Super Administrador
+const ADMIN1 = {
+  nombre: "Jeronimo Cosio",
+  email: "jero@crowdlink.mx",
+  permiso: "Administrador",
+  password: "admin123",
+};
+
+const ADMIN2 = {
+  nombre: "Juana Monroy",
+  email: "conta@crowdlink.mx",
+  permiso: "Administrador",
+  password: "admin123",
+};
+
+// Recuperar usuarios del localStorage o inicializar con los predeterminados
 let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-// Verificar si el Super Administrador ya existe
-if (!usuarios.some((user) => user.email === SUPER_ADMIN.email)) {
-  usuarios.push(SUPER_ADMIN);
+[SUPER_ADMIN, ADMIN1, ADMIN2].forEach((usuario) => {
+  if (!usuarios.some((user) => user.email === usuario.email)) {
+    usuarios.push(usuario);
+  }
+});
+
+localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+// Crear usuario (Solo Super Administrador puede hacerlo)
+function crearUsuario() {
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+  const permiso = document.getElementById("permiso").value;
+  const password = document.getElementById("password").value;
+
+  if (!nombre || !email || !permiso || !password) {
+    alert("Por favor, completa todos los campos.");
+    return;
+  }
+
+  usuarios.push({ nombre, email, permiso, password });
   localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  cerrarPopup();
+  actualizarTablaUsuarios();
 }
 
-// Mostrar usuarios en la tabla de Administrador
+// Mostrar usuarios en la tabla (Solo Administrador y Super Administrador)
 function actualizarTablaUsuarios() {
   const usuariosTabla = document.getElementById("usuariosTabla");
-  usuariosTabla.innerHTML = ""; // Limpiar la tabla
+  usuariosTabla.innerHTML = "";
 
   usuarios.forEach((usuario, index) => {
     const fila = document.createElement("tr");
-
     fila.innerHTML = `
       <td>${usuario.permiso}</td>
       <td>${usuario.email}</td>
@@ -34,112 +68,24 @@ function actualizarTablaUsuarios() {
         }
       </td>
     `;
-
     usuariosTabla.appendChild(fila);
   });
 }
 
-// Inicializar al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
-  actualizarTablaUsuarios();
-});
-
-// Mostrar detalles del usuario logueado en la tabla
-function mostrarUsuarioEnTabla() {
-  const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
-  const usuarioTabla = document.getElementById("usuarioTabla");
-
-  usuarioTabla.innerHTML = ""; // Limpiar la tabla antes de llenarla
-
-  if (usuarioLogueado) {
-    const fila = document.createElement("tr");
-
-    fila.innerHTML = `
-      <td>${usuarioLogueado.permiso}</td>
-      <td>${usuarioLogueado.email}</td>
-      <td>${usuarioLogueado.nombre}</td>
-      <td>
-        ${
-          usuarioLogueado.permiso !== "Super Administrador"
-            ? `<button class="btn-detalle-usuario" onclick="cerrarSesion()">Cerrar Sesión</button>`
-            : `<span class="badge-super-admin">Activo</span>`
-        }
-      </td>
-    `;
-
-    usuarioTabla.appendChild(fila);
-  } else {
-    const fila = document.createElement("tr");
-    fila.innerHTML = `
-      <td colspan="4">No hay usuario logueado</td>
-    `;
-    usuarioTabla.appendChild(fila);
-  }
-}
-
-// Función para cerrar sesión (opcional para agregar lógica adicional)
-function cerrarSesion() {
-  if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
-    localStorage.removeItem("usuarioLogueado");
-    window.location.href = "index.html"; // Redirigir al login
-  }
-}
-
-// Inicializar al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
-  mostrarUsuarioEnTabla();
-  mostrarUsuarioNavbar(); // También actualiza la barra de navegación
-});
-
-// Crear usuarios
-
-// Abrir el popup para agregar usuario
-function abrirPopupCrearUsuario() {
-  document.getElementById("popupCrearUsuario").style.display = "flex";
-}
-
-// Cerrar el popup
-function cerrarPopup() {
-  document.getElementById("popupCrearUsuario").style.display = "none";
-  document.getElementById("formAgregarUsuario").reset(); // Limpiar formulario
-}
-
-// Crear un nuevo usuario
-function crearUsuario() {
-  const nombre = document.getElementById("nombre").value;
-  const email = document.getElementById("email").value;
-  const permiso = document.getElementById("permiso").value;
-  const password = document.getElementById("password").value;
-
-  if (!nombre || !email || !permiso || !password) {
-    alert("Por favor, completa todos los campos.");
-    return;
-  }
-
-  // Verificar si el email ya está registrado
-  if (usuarios.some((usuario) => usuario.email === email)) {
-    alert("El correo ya está registrado.");
-    return;
-  }
-
-  // Agregar usuario al array y guardar en localStorage
-  usuarios.push({ nombre, email, permiso, password });
-  localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-  // Actualizar tabla de usuarios y cerrar popup
-  actualizarTablaUsuarios();
-  cerrarPopup();
-
-  alert("Usuario agregado exitosamente.");
-}
-
+// Eliminar usuario
 // Mostrar usuarios en la tabla
 function actualizarTablaUsuarios() {
   const usuariosTabla = document.getElementById("usuariosTabla");
   usuariosTabla.innerHTML = ""; // Limpiar la tabla
 
-  usuarios.forEach((usuario, index) => {
+  usuarios.forEach((usuario) => {
     const fila = document.createElement("tr");
+
+    // Verificar si el usuario es ineditable
+    const ineditable =
+      usuario.email === "luis@crowdlink.mx" || // Super Administrador
+      usuario.email === "jero@crowdlink.mx" || // Jerónimo
+      usuario.email === "conta@crowdlink.mx"; // Juana
 
     fila.innerHTML = `
       <td>${usuario.permiso}</td>
@@ -147,9 +93,9 @@ function actualizarTablaUsuarios() {
       <td>${usuario.nombre}</td>
       <td>
         ${
-          usuario.email !== "luis@crowdlink.mx"
-            ? `<button class="btn-detalle-usuario" onclick="eliminarUsuario(${index})">Eliminar</button>`
-            : `<span class="badge-super-admin">No editable</span>`
+          ineditable
+            ? `<span class="badge-super-admin">No editable</span>`
+            : `<button class="btn-detalle-usuario" onclick="eliminarUsuario('${usuario.email}')">Eliminar</button>`
         }
       </td>
     `;
@@ -158,18 +104,16 @@ function actualizarTablaUsuarios() {
   });
 }
 
-// Inicializar tabla al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
-  actualizarTablaUsuarios();
-});
-
 // Eliminar usuario
-function eliminarUsuario(index) {
-  const usuarioAEliminar = usuarios[index];
+function eliminarUsuario(email) {
+  const usuarioAEliminar = usuarios.find((usuario) => usuario.email === email);
 
-  // Verificar si el usuario a eliminar es el Super Administrador
-  if (usuarioAEliminar.email === "luis@crowdlink.mx") {
-    alert("No puedes eliminar al Super Administrador.");
+  if (
+    usuarioAEliminar.email === "luis@crowdlink.mx" ||
+    usuarioAEliminar.email === "jero@crowdlink.mx" ||
+    usuarioAEliminar.email === "conta@crowdlink.mx"
+  ) {
+    alert("No puedes eliminar este usuario.");
     return;
   }
 
@@ -178,9 +122,112 @@ function eliminarUsuario(index) {
       `¿Estás seguro de que deseas eliminar a ${usuarioAEliminar.nombre}?`
     )
   ) {
-    usuarios.splice(index, 1); // Eliminar del array
+    usuarios = usuarios.filter((usuario) => usuario.email !== email); // Filtrar el usuario
     localStorage.setItem("usuarios", JSON.stringify(usuarios)); // Actualizar localStorage
     actualizarTablaUsuarios(); // Actualizar la tabla
-    alert(`Usuario ${usuarioAEliminar.nombre} eliminado con éxito.`);
   }
+}
+
+// Llamar a la función al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  actualizarTablaUsuarios();
+  mostrarUsuarioLogueado();
+});
+
+// Verificar acceso a la sección de Administrador
+function verificarAccesoAdministrador() {
+  const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+  if (!usuarioLogueado || usuarioLogueado.permiso !== "Super Administrador") {
+    alert("Acceso denegado: Solo el Super Administrador puede acceder.");
+    window.location.href = "dashboard.html"; // Redirige si no tiene acceso
+  }
+}
+
+// Inicializar
+document.addEventListener("DOMContentLoaded", () => {
+  actualizarTablaUsuarios();
+});
+
+// mostrar usuario logeado en la seccion de Usuario
+
+// Mostrar el usuario logueado en el navbar y la sección de Usuario
+function mostrarUsuarioLogueado() {
+  const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+  if (!usuarioLogueado) {
+    alert("No hay usuario logueado. Redirigiendo al inicio de sesión.");
+    window.location.href = "index.html";
+    return;
+  }
+
+  // Mostrar el usuario logueado en el navbar
+  const navbarUsuario = document.getElementById("navbar-usuario");
+  if (navbarUsuario) {
+    navbarUsuario.textContent = `Usuario: ${usuarioLogueado.nombre}`;
+  }
+
+  // Mostrar el usuario logueado en la sección de Usuario
+  const usuarioTabla = document.getElementById("usuarioTabla");
+  if (usuarioTabla) {
+    usuarioTabla.innerHTML = `
+      <tr>
+        <td>${usuarioLogueado.permiso}</td>
+        <td>${usuarioLogueado.email}</td>
+        <td>${usuarioLogueado.nombre}</td>
+        <td><span class="badge-super-admin">Logueado</span></td>
+      </tr>
+    `;
+  }
+}
+
+// Llamar a la función al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarUsuarioLogueado();
+});
+
+// crear usuario nuevo
+
+// Abrir popup para agregar usuario
+function abrirPopupCrearUsuario() {
+  document.getElementById("popupCrearUsuario").style.display = "flex";
+  document.getElementById("nombre").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("permiso").value = "Administrador";
+  document.getElementById("password").value = "";
+}
+
+// Cerrar popup
+function cerrarPopup() {
+  document.getElementById("popupCrearUsuario").style.display = "none";
+}
+
+// Crear un nuevo usuario
+function crearUsuario() {
+  const nombre = document.getElementById("nombre").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const permiso = document.getElementById("permiso").value;
+  const password = document.getElementById("password").value.trim();
+
+  if (!nombre || !email || !permiso || !password) {
+    alert("Por favor, completa todos los campos.");
+    return;
+  }
+
+  // Verificar si el correo ya está en uso
+  if (usuarios.some((usuario) => usuario.email === email)) {
+    alert("El correo electrónico ya está registrado.");
+    return;
+  }
+
+  // Agregar el nuevo usuario al array
+  usuarios.push({ nombre, email, permiso, password });
+
+  // Guardar usuarios en localStorage
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+  // Cerrar el popup y actualizar la tabla
+  cerrarPopup();
+  actualizarTablaUsuarios();
+  alert(`Usuario ${nombre} agregado con éxito.`);
 }

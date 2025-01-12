@@ -239,3 +239,22 @@ function toggleFaq(button) {
     answer.classList.add("active");
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+  if (!usuarioLogueado) {
+    alert("Debes iniciar sesión.");
+    window.location.href = "index.html";
+  }
+
+  const adminSection = document.getElementById("administrador");
+  if (usuarioLogueado.permiso !== "Super Administrador") {
+    adminSection.style.display = "none";
+  }
+
+  // Mostrar nombre del usuario logueado en el navbar
+  document.getElementById(
+    "navbar-usuario"
+  ).textContent = `Usuario: ${usuarioLogueado.nombre}`;
+});
