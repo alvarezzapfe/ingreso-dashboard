@@ -180,3 +180,13 @@
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+/* Super Administrador Badge */
+.badge-super-admin {
+  background: #facc15;
+  color: #1e3a8a;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}

@@ -34,11 +34,21 @@ function ingresarUsuario() {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
 
-  if (email && password) {
-    // Simula la redirección tras una verificación exitosa
-    window.location.href = "dashboard.html";
+  // Recuperar usuarios del localStorage
+  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  // Buscar usuario con correo y contraseña correctos
+  const usuario = usuarios.find(
+    (user) => user.email === email && user.password === password
+  );
+
+  if (usuario) {
+    // Guardar usuario logueado en localStorage
+    localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
+    alert("Ingreso exitoso. Bienvenido, " + usuario.nombre);
+    window.location.href = "dashboard.html"; // Redirigir al dashboard
   } else {
-    alert("Por favor, ingresa tu correo electrónico y contraseña.");
+    alert("Correo o contraseña incorrectos.");
   }
 }
 
@@ -82,3 +92,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Iniciar sesión
+function iniciarSesion() {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  // Obtener usuarios del localStorage
+  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  // Buscar usuario
+  const usuarioEncontrado = usuarios.find(
+    (user) => user.email === email && user.password === password
+  );
+
+  if (usuarioEncontrado) {
+    // Guardar el usuario logueado en localStorage
+    localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioEncontrado));
+
+    alert(`Bienvenido, ${usuarioEncontrado.nombre}`);
+    window.location.href = "dashboard.html"; // Redirigir al dashboard
+  } else {
+    alert("Correo o contraseña incorrectos.");
+  }
+}
+
+// Asignar evento al botón de inicio de sesión
+document.getElementById("loginButton").addEventListener("click", iniciarSesion);

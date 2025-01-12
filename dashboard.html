@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel de Usuario</title>
+    
+    
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/usuarios.css" />
     <link
@@ -159,223 +161,223 @@
 
       <!-- Sección: Reportes Regulatorios -->
 <!-- Sección: Reportes Regulatorios -->
-<section id="reportesFinancieros" class="section active">
-  <h2>Reportes Regulatorios</h2>
-  <p class="section-subtitle">
-    Gestiona y transforma reportes financieros clave para el cumplimiento regulatorio.
-  </p>
-  <div class="container">
-    <!-- Serie R01 -->
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R01')">
-        <i class="fas fa-file-alt"></i> Serie R01 - Catálogo Mínimo
-      </h3>
-      <div id="R01" class="opciones ocultar">
-        <p class="description">Catálogo Mínimo A-0112</p>
-        <input type="file" id="fileR01" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR01', 'resultR01')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR01')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR01" class="json-result"></pre>
-      </div>
-    </div>
+        <section id="reportesFinancieros" class="section active">
+          <h2>Reportes Regulatorios</h2>
+          <p class="section-subtitle">
+            Gestiona y transforma reportes financieros clave para el cumplimiento regulatorio.
+          </p>
+          <div class="container">
+            <!-- Serie R01 -->
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R01')">
+                <i class="fas fa-file-alt"></i> Serie R01 - Catálogo Mínimo
+              </h3>
+              <div id="R01" class="opciones ocultar">
+                <p class="description">Catálogo Mínimo A-0112</p>
+                <input type="file" id="fileR01" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR01', 'resultR01')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR01')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR01" class="json-result"></pre>
+              </div>
+            </div>
 
-    <!-- Serie R08 -->
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R08')">
-        <i class="fas fa-file-alt"></i> Serie R08 - Préstamos Bancarios
-      </h3>
-      <div id="R08" class="opciones ocultar">
-        <p class="description">Préstamos Bancarios y de Otros Organismos - D-0842</p>
-        <input type="file" id="fileR08" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR08', 'resultR08')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR08')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR08" class="json-result"></pre>
-      </div>
-    </div>
+            <!-- Serie R08 -->
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R08')">
+                <i class="fas fa-file-alt"></i> Serie R08 - Préstamos Bancarios
+              </h3>
+              <div id="R08" class="opciones ocultar">
+                <p class="description">Préstamos Bancarios y de Otros Organismos - D-0842</p>
+                <input type="file" id="fileR08" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR08', 'resultR08')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR08')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR08" class="json-result"></pre>
+              </div>
+            </div>
 
-    <!-- Serie R10 Reclasificaciones -->
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R10A')">
-        <i class="fas fa-file-alt"></i> Serie R10 - Reclasificaciones (A-10112)
-      </h3>
-      <div id="R10A" class="opciones ocultar">
-        <p class="description">Reclasificaciones en el Estado de Situación Financiera</p>
-        <input type="file" id="fileR10A" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR10A', 'resultR10A')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR10A')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR10A" class="json-result"></pre>
-      </div>
-    </div>
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R10B')">
-        <i class="fas fa-file-alt"></i> Serie R10 - Reclasificaciones (A-10122)
-      </h3>
-      <div id="R10B" class="opciones ocultar">
-        <p class="description">Reclasificaciones en el Estado de Resultado Integral</p>
-        <input type="file" id="fileR10B" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR10B', 'resultR10B')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR10B')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR10B" class="json-result"></pre>
-      </div>
-    </div>
+            <!-- Serie R10 Reclasificaciones -->
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R10A')">
+                <i class="fas fa-file-alt"></i> Serie R10 - Reclasificaciones (A-10112)
+              </h3>
+              <div id="R10A" class="opciones ocultar">
+                <p class="description">Reclasificaciones en el Estado de Situación Financiera</p>
+                <input type="file" id="fileR10A" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR10A', 'resultR10A')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR10A')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR10A" class="json-result"></pre>
+              </div>
+            </div>
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R10B')">
+                <i class="fas fa-file-alt"></i> Serie R10 - Reclasificaciones (A-10122)
+              </h3>
+              <div id="R10B" class="opciones ocultar">
+                <p class="description">Reclasificaciones en el Estado de Resultado Integral</p>
+                <input type="file" id="fileR10B" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR10B', 'resultR10B')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR10B')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR10B" class="json-result"></pre>
+              </div>
+            </div>
 
-    <!-- Serie R12 Consolidación -->
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R12A')">
-        <i class="fas fa-file-alt"></i> Serie R12 - Consolidación (A-12192)
-      </h3>
-      <div id="R12A" class="opciones ocultar">
-        <p class="description">Consolidación del Estado de Situación Financiera</p>
-        <input type="file" id="fileR12A" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR12A', 'resultR12A')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR12A')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR12A" class="json-result"></pre>
-      </div>
-    </div>
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R12B')">
-        <i class="fas fa-file-alt"></i> Serie R12 - Consolidación (A-12202)
-      </h3>
-      <div id="R12B" class="opciones ocultar">
-        <p class="description">Consolidación del Estado de Resultado Integral</p>
-        <input type="file" id="fileR12B" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR12B', 'resultR12B')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR12B')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR12B" class="json-result"></pre>
-      </div>
-    </div>
+            <!-- Serie R12 Consolidación -->
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R12A')">
+                <i class="fas fa-file-alt"></i> Serie R12 - Consolidación (A-12192)
+              </h3>
+              <div id="R12A" class="opciones ocultar">
+                <p class="description">Consolidación del Estado de Situación Financiera</p>
+                <input type="file" id="fileR12A" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR12A', 'resultR12A')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR12A')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR12A" class="json-result"></pre>
+              </div>
+            </div>
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R12B')">
+                <i class="fas fa-file-alt"></i> Serie R12 - Consolidación (A-12202)
+              </h3>
+              <div id="R12B" class="opciones ocultar">
+                <p class="description">Consolidación del Estado de Resultado Integral</p>
+                <input type="file" id="fileR12B" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR12B', 'resultR12B')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR12B')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR12B" class="json-result"></pre>
+              </div>
+            </div>
 
-    <!-- Serie R13 Estados Financieros -->
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R13A')">
-        <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (A-13112)
-      </h3>
-      <div id="R13A" class="opciones ocultar">
-        <p class="description">Estado de Cambios en el Capital Contable</p>
-        <input type="file" id="fileR13A" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR13A', 'resultR13A')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR13A')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR13A" class="json-result"></pre>
-      </div>
-    </div>
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R13B')">
-        <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (A-13162)
-      </h3>
-      <div id="R13B" class="opciones ocultar">
-        <p class="description">Estado de Flujos de Efectivo</p>
-        <input type="file" id="fileR13B" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR13B', 'resultR13B')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR13B')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR13B" class="json-result"></pre>
-      </div>
-    </div>
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R13C')">
-        <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (B-13212)
-      </h3>
-      <div id="R13C" class="opciones ocultar">
-        <p class="description">Estado de Situación Financiera</p>
-        <input type="file" id="fileR13C" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR13C', 'resultR13C')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR13C')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR13C" class="json-result"></pre>
-      </div>
-    </div>
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R13D')">
-        <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (B-13222)
-      </h3>
-      <div id="R13D" class="opciones ocultar">
-        <p class="description">Estado de Resultado Integral</p>
-        <input type="file" id="fileR13D" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR13D', 'resultR13D')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR13D')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR13D" class="json-result"></pre>
-      </div>
-    </div>
+            <!-- Serie R13 Estados Financieros -->
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R13A')">
+                <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (A-13112)
+              </h3>
+              <div id="R13A" class="opciones ocultar">
+                <p class="description">Estado de Cambios en el Capital Contable</p>
+                <input type="file" id="fileR13A" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR13A', 'resultR13A')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR13A')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR13A" class="json-result"></pre>
+              </div>
+            </div>
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R13B')">
+                <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (A-13162)
+              </h3>
+              <div id="R13B" class="opciones ocultar">
+                <p class="description">Estado de Flujos de Efectivo</p>
+                <input type="file" id="fileR13B" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR13B', 'resultR13B')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR13B')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR13B" class="json-result"></pre>
+              </div>
+            </div>
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R13C')">
+                <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (B-13212)
+              </h3>
+              <div id="R13C" class="opciones ocultar">
+                <p class="description">Estado de Situación Financiera</p>
+                <input type="file" id="fileR13C" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR13C', 'resultR13C')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR13C')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR13C" class="json-result"></pre>
+              </div>
+            </div>
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R13D')">
+                <i class="fas fa-file-alt"></i> Serie R13 - Estados Financieros (B-13222)
+              </h3>
+              <div id="R13D" class="opciones ocultar">
+                <p class="description">Estado de Resultado Integral</p>
+                <input type="file" id="fileR13D" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR13D', 'resultR13D')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR13D')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR13D" class="json-result"></pre>
+              </div>
+            </div>
 
-    <!-- Serie R27 Reclamaciones -->
-    <div class="serie">
-      <h3 class="serie-title" onclick="toggleOptions('R27')">
-        <i class="fas fa-file-alt"></i> Serie R27 - Reclamaciones
-      </h3>
-      <div id="R27" class="opciones ocultar">
-        <p class="description">Reclamaciones - A-2702</p>
-        <input type="file" id="fileR27" accept=".xlsx" />
-        <div class="buttons">
-          <button onclick="transformar('fileR27', 'resultR27')">
-            <i class="fas fa-file-code"></i> Transformar a JSON
-          </button>
-          <button onclick="descargar('resultR27')">
-            <i class="fas fa-download"></i> Descargar JSON
-          </button>
-        </div>
-        <pre id="resultR27" class="json-result"></pre>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- Serie R27 Reclamaciones -->
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('R27')">
+                <i class="fas fa-file-alt"></i> Serie R27 - Reclamaciones
+              </h3>
+              <div id="R27" class="opciones ocultar">
+                <p class="description">Reclamaciones - A-2702</p>
+                <input type="file" id="fileR27" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR27', 'resultR27')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR27')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultR27" class="json-result"></pre>
+              </div>
+            </div>
+          </div>
+        </section>
 
 
 
@@ -447,10 +449,12 @@
         </section>
 
 
+        
         <!-- Sección: Usuario personal -->
         <section id="usuario" class="section">
           <h2>Usuario de la Plataforma</h2>
-          <p>Consulta tu usuario</p>
+          <p>Información de Usuario:</p>
+          
 
           <!-- Tabla de usuarios -->
           <div class="usuarios-container">
@@ -460,32 +464,17 @@
                   <th>Permiso</th>
                   <th>Usuario</th>
                   <th>Nombre Completo</th>
-                  <th>Fecha de Registro</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Administrador</td>
-                  <td>admin@empresa.com</td>
-                  <td>Juan Pérez</td>
-                  <td>2024-01-10</td>
-                  <td>
-                    <button
-                      class="btn-detalle-usuario"
-                      onclick="verDetalleUsuario('1')"
-                    >
-                      Ver Detalle
-                    </button>
-                  </td>
-                </tr>
+              <tbody id="usuarioTabla">
+                <!-- Filas generadas dinámicamente -->
               </tbody>
             </table>
           </div>
         </section>
 
-        
-          <!-- Sección: Información General -->
+
         <!-- Sección: Información General -->
         <section id="infoGeneral" class="section active">
           <div class="info-header">
@@ -566,60 +555,73 @@
 
                 
         <!--Seccion de Administrador de Usuarios-->
-        <!-- Sección: Administrador de Usuarios -->
-        <section id="administrador" class="section active">
-          <h2>Usuarios de la Plataforma</h2>
-          <p>Gestiona y visualiza los usuarios registrados en la aplicación.</p>
-
-          <!-- Botón para agregar usuario -->
+        <section id="administrador" class="section">
+          <h2>Gestión de Usuarios</h2>
+          <p>Agrega y gestiona usuarios de la plataforma</p>
+        
+          <!-- Botón para abrir el popup -->
           <div class="usuarios-header">
             <button class="btn-agregar-usuario" onclick="abrirPopupCrearUsuario()">
               Agregar Usuario
             </button>
           </div>
-
+        
           <!-- Tabla de usuarios -->
           <div class="usuarios-container">
             <table class="usuarios-tabla">
               <thead>
                 <tr>
                   <th>Permiso</th>
-                  <th>Email</th>
-                  <th>Nombre</th>
+                  <th>Usuario</th>
+                  <th>Nombre Completo</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
               <tbody id="usuariosTabla">
-                <!-- Los usuarios se cargarán aquí dinámicamente -->
+                <!-- Usuarios dinámicos aquí -->
               </tbody>
             </table>
           </div>
-
+        
           <!-- Popup para agregar usuario -->
           <div id="popupCrearUsuario" class="popup-gradiente" style="display: none;">
             <div class="popup-content">
-              <h2>Crear Usuario</h2>
-              <form>
+              <h2>Agregar Nuevo Usuario</h2>
+              <form id="formAgregarUsuario">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Nombre completo" />
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Correo electrónico" />
-
+                <input type="text" id="nombre" placeholder="Nombre completo" required />
+        
+                <label for="email">Correo Electrónico:</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="ejemplo@correo.com"
+                  required
+                />
+        
                 <label for="permiso">Permiso:</label>
-                <select id="permiso">
+                <select id="permiso" required>
                   <option value="Administrador">Administrador</option>
                   <option value="Consulta">Consulta</option>
                 </select>
-
+        
+                <label for="password">Contraseña:</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Contraseña"
+                  required
+                />
+        
                 <div class="popup-buttons">
-                  <button type="button" onclick="crearUsuario()">Crear Usuario</button>
+                  <button type="button" onclick="crearUsuario()">Agregar</button>
                   <button type="button" onclick="cerrarPopup()">Cancelar</button>
                 </div>
               </form>
             </div>
           </div>
         </section>
+        
 
 
 
