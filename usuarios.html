@@ -1,0 +1,48 @@
+<!-- Botón para abrir el popup -->
+<div class="usuarios-header">
+  <button class="btn-agregar-usuario" onclick="abrirPopupCrearUsuario()">
+    Agregar Usuario
+  </button>
+</div>
+
+<!-- Tabla de usuarios -->
+<div class="usuarios-container">
+  <table class="usuarios-tabla">
+    <thead>
+      <tr>
+        <th>Permiso</th>
+        <th>Email</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Los usuarios se cargarán aquí dinámicamente -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Popup para crear usuarios -->
+<div id="popupCrearUsuario" class="popup-gradiente" style="display: none">
+  <div class="popup-content">
+    <h2>Crear Usuario</h2>
+    <form>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" placeholder="Nombre completo" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Correo electrónico" />
+
+      <label for="permiso">Permiso:</label>
+      <select id="permiso">
+        <option value="Administrador">Administrador</option>
+        <option value="Consulta">Consulta</option>
+      </select>
+
+      <div class="popup-buttons">
+        <button type="button" onclick="crearUsuario()">Crear Usuario</button>
+        <button type="button" onclick="cerrarPopup()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

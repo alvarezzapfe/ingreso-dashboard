@@ -1,0 +1,182 @@
+/* Botón para agregar usuario */
+.btn-agregar-usuario {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-agregar-usuario:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+}
+
+/* Popup estilizado */
+.popup-gradiente {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.popup-content {
+  background: linear-gradient(135deg, #1e40af, #1e3a8a);
+  padding: 30px;
+  border-radius: 16px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  width: 450px;
+  transform: scale(0.9);
+  animation: popIn 0.3s ease-in-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.popup-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #facc15;
+}
+
+.popup-content form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.popup-content form input,
+.popup-content form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+.popup-content form input:focus,
+.popup-content form select:focus {
+  outline: none;
+  border: 2px solid #60a5fa;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.popup-buttons button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.popup-buttons button:first-child {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+}
+
+.popup-buttons button:first-child:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-buttons button:last-child {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+}
+
+.popup-buttons button:last-child:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Tabla de usuarios */
+.usuarios-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.usuarios-tabla th,
+.usuarios-tabla td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.usuarios-tabla th {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.usuarios-tabla td {
+  font-size: 14px;
+  color: #333;
+}
+
+.usuarios-tabla tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.usuarios-tabla tr:hover {
+  background-color: #f1f1f1;
+}
+
+.btn-detalle-usuario {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-detalle-usuario:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

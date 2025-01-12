@@ -225,17 +225,16 @@ function toggleFaq(element) {
 }
 
 // seccion info general
-
-function toggleFaq(element) {
-  const answer = element.nextElementSibling;
+function toggleFaq(button) {
+  const answer = button.nextElementSibling;
   const isActive = answer.classList.contains("active");
 
-  // Cerrar todas las FAQ abiertas
-  document.querySelectorAll(".faq-answer").forEach((item) => {
-    item.classList.remove("active");
+  // Cerrar todas las preguntas abiertas
+  document.querySelectorAll(".faq-answer").forEach((faq) => {
+    faq.classList.remove("active");
   });
 
-  // Abrir o cerrar la actual
+  // Alternar el estado actual
   if (!isActive) {
     answer.classList.add("active");
   }
