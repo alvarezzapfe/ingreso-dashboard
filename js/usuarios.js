@@ -136,7 +136,7 @@ function crearUsuario() {
 // Mostrar usuarios en la tabla
 function actualizarTablaUsuarios() {
   const usuariosTabla = document.getElementById("usuariosTabla");
-  usuariosTabla.innerHTML = ""; // Limpiar tabla
+  usuariosTabla.innerHTML = ""; // Limpiar la tabla
 
   usuarios.forEach((usuario, index) => {
     const fila = document.createElement("tr");
@@ -147,7 +147,7 @@ function actualizarTablaUsuarios() {
       <td>${usuario.nombre}</td>
       <td>
         ${
-          usuario.permiso !== "Super Administrador"
+          usuario.email !== "luis@crowdlink.mx"
             ? `<button class="btn-detalle-usuario" onclick="eliminarUsuario(${index})">Eliminar</button>`
             : `<span class="badge-super-admin">No editable</span>`
         }
@@ -162,3 +162,25 @@ function actualizarTablaUsuarios() {
 document.addEventListener("DOMContentLoaded", () => {
   actualizarTablaUsuarios();
 });
+
+// Eliminar usuario
+function eliminarUsuario(index) {
+  const usuarioAEliminar = usuarios[index];
+
+  // Verificar si el usuario a eliminar es el Super Administrador
+  if (usuarioAEliminar.email === "luis@crowdlink.mx") {
+    alert("No puedes eliminar al Super Administrador.");
+    return;
+  }
+
+  if (
+    confirm(
+      `¿Estás seguro de que deseas eliminar a ${usuarioAEliminar.nombre}?`
+    )
+  ) {
+    usuarios.splice(index, 1); // Eliminar del array
+    localStorage.setItem("usuarios", JSON.stringify(usuarios)); // Actualizar localStorage
+    actualizarTablaUsuarios(); // Actualizar la tabla
+    alert(`Usuario ${usuarioAEliminar.nombre} eliminado con éxito.`);
+  }
+}
