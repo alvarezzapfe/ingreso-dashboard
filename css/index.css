@@ -349,3 +349,89 @@ body {
   display: block;
   margin: 0 auto;
 }
+
+/*  AQUI VA CSS PARA LA VERSION MOBILE */
+
+/* General Mobile Styles */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column; /* Apila los elementos */
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .navbar .logo img {
+    width: 80px; /* Reduce el tamaño del logo */
+  }
+
+  .navbar-brand {
+    font-size: 16px; /* Reduce el tamaño del texto */
+    margin: 10px 0;
+  }
+
+  .menu-icon {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
+  /* Login Container */
+  .login-container {
+    width: 90%; /* Aumenta el ancho relativo */
+    padding: 20px; /* Reduce el padding */
+  }
+
+  .login-container h3 {
+    font-size: 20px; /* Reduce el tamaño del título */
+  }
+
+  .input-group input {
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 10px; /* Reduce el padding */
+  }
+
+  .input-group label {
+    font-size: 12px; /* Reduce el tamaño de las etiquetas */
+  }
+
+  .login-container button {
+    font-size: 16px; /* Ajusta el texto del botón */
+    padding: 10px;
+  }
+
+  /* Popup */
+  .popup {
+    width: 90%; /* Ajusta el ancho del pop-up */
+    padding: 15px; /* Reduce el padding */
+    top: 60%; /* Ajusta la posición */
+  }
+
+  .popup-header h3 {
+    font-size: 18px; /* Reduce el tamaño del título */
+  }
+
+  .popup-body p {
+    font-size: 14px; /* Ajusta el texto */
+  }
+
+  .popup-links a {
+    font-size: 14px; /* Reduce el tamaño de los enlaces */
+  }
+
+  /* Hamburger Icon */
+  .hamburger-icon {
+    width: 30px; /* Icono más pequeño */
+    height: 20px;
+  }
+
+  .hamburger-icon .bar {
+    height: 3px; /* Líneas más finas */
+  }
+
+  /* Menu Dropdown */
+  .menu-dropdown {
+    width: 90%; /* Ocupa casi todo el ancho */
+    top: 60px; /* Ajusta la posición */
+    right: 5%; /* Centra horizontalmente */
+  }
+}
