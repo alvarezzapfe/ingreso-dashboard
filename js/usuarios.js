@@ -20,10 +20,24 @@ const ADMIN2 = {
   password: "admin123",
 };
 
+const SUPER_ADMIN2 = {
+  nombre: "Paulina Zapfe",
+  email: "pau@crowdlink.mx",
+  permiso: "Super Administrador",
+  password: "admin123",
+};
+
+const ADMIN3 = {
+  nombre: "Rafael Cancino",
+  email: "rafa@crowdlink.mx",
+  permiso: "Administrador",
+  password: "admin123",
+};
+
 // Recuperar usuarios del localStorage o inicializar con los predeterminados
 let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-[SUPER_ADMIN, ADMIN1, ADMIN2].forEach((usuario) => {
+[SUPER_ADMIN, ADMIN1, ADMIN2, SUPER_ADMIN2, ADMIN3].forEach((usuario) => {
   if (!usuarios.some((user) => user.email === usuario.email)) {
     usuarios.push(usuario);
   }
@@ -85,7 +99,8 @@ function actualizarTablaUsuarios() {
     const ineditable =
       usuario.email === "luis@crowdlink.mx" || // Super Administrador
       usuario.email === "jero@crowdlink.mx" || // Jerónimo
-      usuario.email === "conta@crowdlink.mx"; // Juana
+      usuario.email === "conta@crowdlink.mx" || // Juana
+      usuario.email === "pau@crowdlink.mx";
 
     fila.innerHTML = `
       <td>${usuario.permiso}</td>
@@ -111,7 +126,8 @@ function eliminarUsuario(email) {
   if (
     usuarioAEliminar.email === "luis@crowdlink.mx" ||
     usuarioAEliminar.email === "jero@crowdlink.mx" ||
-    usuarioAEliminar.email === "conta@crowdlink.mx"
+    usuarioAEliminar.email === "conta@crowdlink.mx" ||
+    usuarioAEliminar.email === "pau@crowdlink.mx"
   ) {
     alert("No puedes eliminar este usuario.");
     return;
