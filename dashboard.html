@@ -165,13 +165,54 @@
         </div>
 
       <!-- Sección: Reportes Regulatorios -->
-<!-- Sección: Reportes Regulatorios -->
+      <!-- Sección: Reportes Regulatorios -->
         <section id="reportesFinancieros" class="section active">
           <h2>Reportes Regulatorios</h2>
           <p class="section-subtitle">
             Gestiona y transforma reportes financieros clave para el cumplimiento regulatorio.
           </p>
+          <!--   contenedor inputs reportes regulatorios -->
+          <div id="configuracionReportes" class="config-container">
+            <div class="config-box">
+              <label for="moneda">Moneda:</label>
+              <input type="text" id="moneda" value="MXN" disabled />
+              <div class="button-group">
+                <button onclick="actualizarCampo('moneda')">Actualizar</button>
+              </div>
+            </div>
+            <div class="config-box">
+              <label for="claveInstitucion">Clave de la Institución:</label>
+              <input type="text" id="claveInstitucion" value="065-022" />
+              <div class="button-group">
+                <button onclick="actualizarCampo('claveInstitucion')">Actualizar</button>
+              </div>
+            </div>
+            <div class="config-box">
+              <label for="mesReporte">Mes del Reporte:</label>
+              <select id="mesReporte" onchange="cambiarMesReporte()">
+                <option value="Enero">Enero</option>
+                <option value="Febrero">Febrero</option>
+                <option value="Marzo">Marzo</option>
+                <!-- Más opciones -->
+              </select>
+            </div>
+            <div class="config-box">
+              <label for="fechaInicio">Fecha de Inicio:</label>
+              <input type="text" id="fechaInicio" readonly />
+              <label for="fechaFin">Fecha de Fin:</label>
+              <input type="text" id="fechaFin" readonly />
+              <div class="button-group">
+                <button onclick="calcularFechas()">Calcular Fechas</button>
+              </div>
+            </div>
+          </div>         
+          <div class="section-divider-with-icon">
+            <i class="fas fa-file-code"></i>
+          </div>
+          
+
           <div class="container">
+
             <!-- Serie R01 -->
             <div class="serie">
               <h3 class="serie-title" onclick="toggleOptions('R01')">
@@ -381,6 +422,25 @@
                 <pre id="resultR27" class="json-result"></pre>
               </div>
             </div>
+            <!-- reporte BAnxico Catálogo Mínimo -->
+            <div class="serie">
+              <h3 class="serie-title" onclick="toggleOptions('CMBanxico')">
+                <i class="fas fa-file-alt"></i> Catálogo Mínimo Banxico
+              </h3>
+              <div id="CMBanxico" class="opciones ocultar">
+                <p class="description">Reclamaciones - A-2702</p>
+                <input type="file" id="fileR27" accept=".xlsx" />
+                <div class="buttons">
+                  <button onclick="transformar('fileR27', 'resultR27')">
+                    <i class="fas fa-file-code"></i> Transformar a JSON
+                  </button>
+                  <button onclick="descargar('resultR27')">
+                    <i class="fas fa-download"></i> Descargar JSON
+                  </button>
+                </div>
+                <pre id="resultCMB" class="json-result"></pre>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -556,9 +616,7 @@
           </div>
         </section>
 
-
-
-                
+        
         <!--Seccion de Administrador de Usuarios-->
         <section id="administrador" class="section">
           <h2>Gestión de Usuarios</h2>
@@ -636,15 +694,16 @@
 
 
     
-    <footer>
+    <footer class="footer">
       <p>
         &copy; 2024 Plataforma para Reportería Regulatoria. Todos los derechos
         reservados.
       </p>
       <div class="logo">
-        <img src="images/Crowdlink - Logotipo-01.png" alt="" />
+        <img src="images/crowd.png" alt="Logo" />
       </div>
     </footer>
+    
 
     <!-- Scripts -->
     <script src="js/dashboard.js"></script>
