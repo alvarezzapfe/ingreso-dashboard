@@ -37,6 +37,9 @@
       <a href="javascript:void(0)" onclick="showSection('reportesPLD')">
         <i class="fas fa-file-alt"></i> <span class="text"> PLD</span>
       </a>
+      <a href="javascript:void(0)" onclick="showSection('sitiAA-section')">
+        <i class="fas fa-cloud"></i> <span class="text"> SITIAA</span>
+      </a>
       <a href="javascript:void(0)" onclick="showSection('usuario')">
         <i class="fas fa-user"></i> <span class="text"> Usuario</span>
       </a>
@@ -65,6 +68,7 @@
         >Reportes</a
       >
       <a href="javascript:void(0)" onclick="showSection('reportesPLD')">PLD</a>
+      <a href="javascript:void(0)" onclick="showSection('sitiAA')">SITI AA</a>
       <a href="javascript:void(0)" onclick="showSection('infoGeneral')"
         >Información</a
       >
@@ -107,7 +111,9 @@
       <header>
         <h1>Plataforma de Reportería Regulatoria</h1>
       </header>
-
+      <div class="navbar">
+        <span id="navbar-usuario">Usuario Activo: Cargando...</span>
+      </div>
       
         <div class="container">
           <!-- Sección: Dashboard -->
@@ -118,9 +124,7 @@
               <p class="dashboard-subtitle">
                 Esta Plataforma es una herramienta de PorCuanto S.A. de C.V., IFC para gestión de reportes regulatorios a CNBV.
               </p>
-              <div class="navbar">
-                <span id="navbar-usuario">Usuario: Cargando...</span>
-              </div>
+              
               
             </div>
             <div class="indicators">
@@ -512,6 +516,19 @@
             </div>
           </div>
         </section>
+
+
+        <!-- Sección SITI AA -->
+        <!-- Sección: SITI AA -->
+        <section id="sitiAA-section" class="section active">
+          <h2 class="sitiAA-title">SITI AA - Crowdlink</h2>
+          <p class="sitiAA-subtitle">
+            Gestiona reportes con el portal SITI AA para <strong>PorCuanto S.A. de C.V., Institución de Financiamiento Colectivo</strong>. Portal En Desarrollo.
+          </p>
+
+        </section>
+
+
 
 
         

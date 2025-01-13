@@ -1072,15 +1072,17 @@ footer {
   justify-content: space-between;
   background: linear-gradient(145deg, #f7fbff, #e0efff);
   border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 8.5px; /* Reducción del padding en un 15% */
+  box-shadow: 0 3.4px 8.5px rgba(0, 0, 0, 0.1); /* Reducción proporcional de la sombra */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  width: 85%; /* Ajuste al 85% del tamaño original */
+  height: 85%; /* Ajuste al 85% del tamaño original */
 }
 
 .config-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3.4px); /* Movimiento reducido proporcionalmente */
+  box-shadow: 0 8.5px 17px rgba(0, 0, 0, 0.15); /* Sombra ajustada proporcionalmente */
 }
 
 /* Etiquetas */
@@ -1146,4 +1148,137 @@ footer {
   gap: 8px;
   justify-content: flex-end;
   width: 100%;
+}
+
+/*  CONTENEDOR USUARIO ACTIVO */
+
+.navbar {
+  background: linear-gradient(45deg, #004d99, #0099ff); /* Gradiente azul */
+  padding: 5px 10px; /* Tamaño más pequeño */
+  text-align: center;
+  border-radius: 6px; /* Bordes redondeados */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+  width: fit-content; /* Ajusta el tamaño al contenido */
+  margin: 10px auto; /* Centra la barra */
+}
+
+#navbar-usuario {
+  color: white; /* Naranja potente */
+  font-size: 0.75em; /* Tamaño de fuente más pequeño */
+  font-weight: normal; /* Letra más delgada */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra sutil */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  font-family: "Arial", sans-serif; /* Fuente clara y moderna */
+}
+
+/*  SECCION SITI AA */
+
+/* Sección SITI AA */
+.sitiAA-section {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sitiAA-title {
+  font-size: 2em;
+  color: #004d99;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sitiAA-subtitle {
+  font-size: 1.2em;
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.sitiAA-action,
+.sitiAA-info,
+.sitiAA-response {
+  margin-top: 20px;
+}
+
+.sitiAA-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sitiAA-btn-primary {
+  background: linear-gradient(45deg, #004d99, #0099ff);
+  color: #ffffff;
+  border: none;
+}
+
+.sitiAA-btn-primary:hover {
+  background: linear-gradient(45deg, #003d80, #0080e0);
+}
+
+.sitiAA-btn-secondary {
+  background: #ff6600;
+  color: #ffffff;
+  border: none;
+}
+
+.sitiAA-btn-secondary:hover {
+  background: #e65500;
+}
+
+.sitiAA-status-message {
+  color: #004d99;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.sitiAA-info-title {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.sitiAA-faq {
+  margin-top: 10px;
+}
+
+.sitiAA-faq-btn {
+  background: #f7fbff;
+  border: 1px solid #004d99;
+  color: #004d99;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.sitiAA-faq-btn:hover {
+  background: #e0efff;
+}
+
+.sitiAA-faq-answer {
+  background: #e0efff;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  display: none;
+}
+
+.sitiAA-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
 }
