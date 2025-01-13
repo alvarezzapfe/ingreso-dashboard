@@ -119,39 +119,3 @@ function iniciarSesion() {
 
 // Asignar evento al botón de inicio de sesión
 document.getElementById("loginButton").addEventListener("click", iniciarSesion);
-
-//
-
-// Toggle Menu
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
-
-if (menuToggle && mobileMenu) {
-  menuToggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("show");
-  });
-}
-
-// Login Popup
-const loginPopup = document.getElementById("loginPopup");
-const closePopup = document.getElementById("closePopup");
-
-function openLoginPopup() {
-  loginPopup.style.display = "block"; // Mostrar popup
-}
-
-closePopup.addEventListener("click", () => {
-  loginPopup.style.display = "none"; // Cerrar popup
-});
-
-// Cerrar popup al hacer clic fuera de él
-document.addEventListener("click", (event) => {
-  if (
-    loginPopup &&
-    !loginPopup.contains(event.target) &&
-    event.target.id !== "loginPopup" &&
-    !event.target.closest(".cta-button")
-  ) {
-    loginPopup.style.display = "none";
-  }
-});
